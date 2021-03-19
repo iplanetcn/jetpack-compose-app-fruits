@@ -26,13 +26,12 @@ import jetpack.compose.app.fruits.data.fruitData
 import jetpack.compose.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 
 @Composable
-fun FruitCardView(fruit: Fruit, screenWidthInDp: Dp = 400.dp) {
+fun FruitCardView(fruit: Fruit, screenWidthInDp: Dp = 320.dp) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
             .fillMaxSize(1f)
             .width(screenWidthInDp)
-            .padding(horizontal = 16.dp, vertical = 32.dp)
             .clip(shape = RoundedCornerShape(20.dp))
             .background(
                 brush = Brush.verticalGradient(
@@ -98,6 +97,6 @@ fun FruitCardView(fruit: Fruit, screenWidthInDp: Dp = 400.dp) {
 @Composable
 fun FruitCardViewPreview() {
     JetpackComposeAppFruitsTheme {
-        FruitCardView(fruitData[0])
+        FruitCardView(fruitData.first())
     }
 }
