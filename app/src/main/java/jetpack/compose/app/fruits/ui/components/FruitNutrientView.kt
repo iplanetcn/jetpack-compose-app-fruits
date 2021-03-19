@@ -35,9 +35,10 @@ fun FruitNutrientView(
 ) {
     val nutrient = arrayOf("Energy", "Sugar", "Fat", "Protein", "Vitamins", "Minerals")
     var expandedNutrient by remember { mutableStateOf<Array<String>>(emptyArray()) }
+
     Column(
         modifier = modifier
-            .clip(shape = RoundedCornerShape(20.dp))
+            .clip(shape = RoundedCornerShape(10.dp))
             .background(color = Color(0x10000000))
             .padding(horizontal = 16.dp, vertical = 8.dp)
             .animateContentSize(),

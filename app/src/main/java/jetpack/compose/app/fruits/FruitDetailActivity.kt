@@ -3,6 +3,7 @@ package jetpack.compose.app.fruits
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -30,16 +31,16 @@ class FruitDetailActivity : ComponentActivity() {
         val uuid : UUID = intent.getSerializableExtra(EXTRA_FRUIT_UUID) as UUID
         val fruit = fruitData.firstOrNull { fruit -> fruit.id == uuid }
 
-        setupStatusBar(color = fruit!!.gradientColors.first())
+        setupStatusBarColor(color = fruit!!.gradientColors.first())
         setContent {
             JetpackComposeAppFruitsTheme {
                 FruitDetailView(fruit)
             }
         }
     }
+}
 
-    private fun setupStatusBar(color: Color) {
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = color.toArgb()
-    }
+fun ComponentActivity.setupStatusBarColor(color: Color) {
+    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+    window.statusBarColor = color.toArgb()
 }
