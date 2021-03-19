@@ -1,5 +1,6 @@
 package jetpack.compose.app.fruits.ui.components
 
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -10,7 +11,7 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.KeyboardArrowRight
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -30,16 +31,16 @@ import jetpack.compose.app.fruits.ui.theme.Typography
 @Composable
 fun FruitNutrientView(
     modifier: Modifier = Modifier,
-    fruit: Fruit,
-    nutrient: Array<String> = emptyArray(),
-    expended: Boolean,
-    onClick: () -> Unit,
+    fruit: Fruit
 ) {
+    val nutrient = arrayOf("Energy", "Sugar", "Fat", "Protein", "Vitamins", "Minerals")
+    var expandedNutrient by remember { mutableStateOf<Array<String>>(emptyArray()) }
     Column(
         modifier = modifier
             .clip(shape = RoundedCornerShape(20.dp))
             .background(color = Color(0x10000000))
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .animateContentSize(),
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         Row(
@@ -55,7 +56,10 @@ fun FruitNutrientView(
             )
 
             IconButton(
-                onClick = onClick,
+                onClick = {
+                    expandedNutrient =
+                        if (expandedNutrient.contentEquals(nutrient)) emptyArray() else nutrient
+                },
                 modifier = Modifier.align(Alignment.CenterVertically)
             ) {
                 Icon(
@@ -64,13 +68,13 @@ fun FruitNutrientView(
                     tint = Color.Black,
                     modifier = Modifier
                         .size(24.dp)
-                        .rotate(if (expended) 90f else 0f)
+                        .rotate(if (expandedNutrient.isNotEmpty()) 90f else 0f)
                 )
             }
 
         }
 
-        if (expended) {
+        if (expandedNutrient.isNotEmpty()) {
             nutrient.forEachIndexed { index, item ->
                 Divider(color = Color.DarkGray, thickness = 0.5.dp)
 
@@ -115,8 +119,6 @@ fun FruitNutrientView(
 @Composable
 fun FruitNutrientViewPreview() {
     JetpackComposeAppFruitsTheme {
-        FruitNutrientView(fruit = fruitData.first(), onClick = {
-            // TODO
-        }, expended = false)
+        FruitNutrientView(fruit = fruitData.first())
     }
 }
