@@ -1,4 +1,4 @@
-package jetpack.compose.app.fruits.view
+package jetpack.compose.app.fruits.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -21,12 +22,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import jetpack.compose.app.fruits.FruitDetailActivity
 import jetpack.compose.app.fruits.data.Fruit
 import jetpack.compose.app.fruits.data.fruitData
 import jetpack.compose.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 
 @Composable
 fun FruitCardView(fruit: Fruit, screenWidthInDp: Dp = 320.dp) {
+    val context = LocalContext.current
+
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
@@ -36,8 +40,8 @@ fun FruitCardView(fruit: Fruit, screenWidthInDp: Dp = 320.dp) {
             .background(
                 brush = Brush.verticalGradient(
                     colors = listOf(
-                        fruit.gradientColors[0],
-                        fruit.gradientColors[1]
+                        fruit.gradientColors.first(),
+                        fruit.gradientColors.last()
                     )
                 )
             )
@@ -60,7 +64,7 @@ fun FruitCardView(fruit: Fruit, screenWidthInDp: Dp = 320.dp) {
                 color = Color.White,
                 style = TextStyle(
                     fontWeight = FontWeight.Bold,
-                    fontSize = 48.sp,
+                    fontSize = 32.sp,
                     letterSpacing = 0.15.sp,
                     shadow = Shadow(
                         color = Color(0x26000000),
@@ -76,7 +80,7 @@ fun FruitCardView(fruit: Fruit, screenWidthInDp: Dp = 320.dp) {
                 color = Color.White,
                 style = TextStyle(
                     fontWeight = FontWeight.Normal,
-                    fontSize = 20.sp,
+                    fontSize = 16.sp,
                     letterSpacing = 0.15.sp
                 ),
                 modifier = Modifier.padding(horizontal = 16.dp)
@@ -85,7 +89,7 @@ fun FruitCardView(fruit: Fruit, screenWidthInDp: Dp = 320.dp) {
             Spacer(modifier = Modifier.height(20.dp))
 
             StartButtonView {
-                // TODO click events implementation
+                FruitDetailActivity.start(context, fruit.id)
             }
 
             Spacer(modifier = Modifier.height(20.dp))

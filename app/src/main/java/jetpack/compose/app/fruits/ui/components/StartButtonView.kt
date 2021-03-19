@@ -1,4 +1,4 @@
-package jetpack.compose.app.fruits.view
+package jetpack.compose.app.fruits.ui.components
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -30,14 +30,14 @@ fun StartButtonView(onClick: () -> Unit) {
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp)
+            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
         ) {
             Text(
                 text = stringResource(id = R.string.button_text_start),
                 color = Color.White,
                 style = TextStyle(
                     fontWeight = FontWeight.Normal,
-                    fontSize = 24.sp,
+                    fontSize = 20.sp,
                     letterSpacing = 1.25.sp
                 )
             )
@@ -52,7 +52,7 @@ fun StartButtonView(onClick: () -> Unit) {
                     imageVector = Icons.Filled.ArrowForward,
                     contentDescription = "icon arrow forward",
                     tint = Color.White,
-                    modifier = Modifier.size(28.dp)
+                    modifier = Modifier.size(24.dp)
                 )
             }
 

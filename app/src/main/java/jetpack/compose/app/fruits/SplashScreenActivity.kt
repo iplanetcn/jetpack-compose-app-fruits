@@ -52,7 +52,7 @@ fun SplashScreenView() {
         contentAlignment = Alignment.Center,
         modifier = Modifier
             .fillMaxSize(1f)
-            .background(colorResource(id = R.color.color_cherry_dark))
+            .background(colorResource(id = R.color.color_lime_dark))
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,

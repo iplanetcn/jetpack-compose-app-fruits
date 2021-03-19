@@ -1,4 +1,4 @@
-package jetpack.compose.app.fruits.view
+package jetpack.compose.app.fruits.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -35,8 +35,8 @@ fun FruitRowView(fruit: Fruit) {
                 .background(
                     brush = Brush.verticalGradient(
                         colors = listOf(
-                            fruit.gradientColors[0],
-                            fruit.gradientColors[1]
+                            fruit.gradientColors.first(),
+                            fruit.gradientColors.last()
                         )
                     )
                 )

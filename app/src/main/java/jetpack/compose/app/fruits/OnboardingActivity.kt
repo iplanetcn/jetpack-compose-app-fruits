@@ -16,8 +16,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import jetpack.compose.app.fruits.data.fruitData
+import jetpack.compose.app.fruits.ui.components.FruitCardView
 import jetpack.compose.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
-import jetpack.compose.app.fruits.view.FruitCardView
 
 class OnboardingActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,33 +32,35 @@ class OnboardingActivity : ComponentActivity() {
 
 @Composable
 fun OnboardingView() {
+    val count = 6
+    val current = 0
+    val offset: Dp = 16.dp
+    val circleRadius = 8.dp
+
     Box (
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.BottomCenter
     ) {
-        val current = 0
-        val offset: Dp = 16.dp
         LazyRow(
             contentPadding = PaddingValues(offset),
             horizontalArrangement = Arrangement.spacedBy(offset)
         ) {
-            items(5) { index ->
+            items(count) { index ->
                 FruitCardView(fruit = fruitData[index])
             }
         }
-        
-        val circleRadius = 10.dp
+
         LazyRow(
             modifier = Modifier.height(64.dp),
             horizontalArrangement = Arrangement.spacedBy(circleRadius),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            items(5) { index ->
+            items(count) { index ->
                 Box(
                     modifier = Modifier
                         .size(circleRadius)
                         .background(
-                            if (index == current) Color.White else Color.LightGray,
+                            if (index == current) Color.White else Color(0x40FFFFFF),
                             shape = CircleShape
                         )
                         .clip(CircleShape)
