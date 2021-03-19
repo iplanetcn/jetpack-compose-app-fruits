@@ -6,7 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -24,6 +24,9 @@ import java.util.*
 
 @Composable
 fun FruitDetailView(fruit: Fruit) {
+    val nutrient = arrayOf("Energy", "Sugar", "Fat", "Protein", "Vitamins", "Minerals")
+    var expandedNutrient by remember { mutableStateOf<Array<String>>(emptyArray()) }
+    
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(10.dp),
@@ -78,7 +81,9 @@ fun FruitDetailView(fruit: Fruit) {
         )
 
         //NUTRIENT
-        FruitNutrientView(fruit, modifier = Modifier.padding(horizontal = 8.dp))
+        FruitNutrientView(modifier = Modifier.padding(horizontal = 8.dp),fruit = fruit, nutrient = nutrient, expended = expandedNutrient.contentEquals(nutrient),onClick = {
+            expandedNutrient = if (expandedNutrient.contentEquals(nutrient)) emptyArray() else nutrient
+        })
         //SUBHEADING
         Text(
             text = "Learn more about ${fruit.title}".toUpperCase(Locale.ENGLISH),
