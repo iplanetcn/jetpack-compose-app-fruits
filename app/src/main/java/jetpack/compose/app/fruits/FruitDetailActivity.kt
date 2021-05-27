@@ -3,7 +3,6 @@ package jetpack.compose.app.fruits
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,6 +17,7 @@ import java.util.*
 class FruitDetailActivity : ComponentActivity() {
     companion object {
         private const val EXTRA_FRUIT_UUID = "fruit_uuid"
+
         @JvmStatic
         fun start(context: Context, uuid: UUID) {
             val starter = Intent(context, FruitDetailActivity::class.java)
@@ -28,7 +28,7 @@ class FruitDetailActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val uuid : UUID = intent.getSerializableExtra(EXTRA_FRUIT_UUID) as UUID
+        val uuid: UUID = intent.getSerializableExtra(EXTRA_FRUIT_UUID) as UUID
         val fruit = fruitData.firstOrNull { fruit -> fruit.id == uuid }
 
         setupStatusBarColor(color = fruit!!.gradientColors.first())
