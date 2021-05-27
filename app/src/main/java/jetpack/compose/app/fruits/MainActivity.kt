@@ -5,29 +5,24 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.appcompat.widget.ThemeUtils
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
-import androidx.compose.material.SnackbarDefaults.backgroundColor
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import jetpack.compose.app.fruits.data.fruitData
 import jetpack.compose.app.fruits.ui.components.FruitRowView
 import jetpack.compose.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
-import jetpack.compose.app.fruits.ui.theme.Purple500
 import jetpack.compose.app.fruits.ui.theme.Typography
 
 class MainActivity : ComponentActivity() {
@@ -82,7 +77,7 @@ fun MainView() {
     Scaffold(
         topBar = { MainAppBar() },
         content = {
-            LazyColumn() {
+            LazyColumn {
                 items(fruitData) { item ->
                     FruitRowView(fruit = item)
                 }

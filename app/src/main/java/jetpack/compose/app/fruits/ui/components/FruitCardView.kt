@@ -1,7 +1,5 @@
 package jetpack.compose.app.fruits.ui.components
 
-import android.content.Context
-import android.view.WindowManager
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -24,7 +22,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import jetpack.compose.app.fruits.FruitDetailActivity
 import jetpack.compose.app.fruits.MainActivity
 import jetpack.compose.app.fruits.data.Fruit
 import jetpack.compose.app.fruits.data.fruitData
