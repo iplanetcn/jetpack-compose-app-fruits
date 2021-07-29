@@ -1,5 +1,6 @@
 package jetpack.compose.app.fruits.ui.components
 
+import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -87,7 +88,13 @@ fun FruitRowView(fruit: Fruit) {
 }
 
 
-@Preview
+@Preview(
+    name = "Light Mode",
+    showBackground = true)
+@Preview(
+    name = "Dark Mode",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 fun FruitRowViewPreview() {
     JetpackComposeAppFruitsTheme {

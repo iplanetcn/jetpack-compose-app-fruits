@@ -81,7 +81,7 @@ fun FruitDetailView(fruit: Fruit) {
         FruitNutrientView(modifier = Modifier.padding(horizontal = 8.dp),fruit = fruit)
         //SUBHEADING
         Text(
-            text = "Learn more about ${fruit.title}".toUpperCase(Locale.ENGLISH),
+            text = "Learn more about ${fruit.title}".uppercase(Locale.ENGLISH),
             color = fruit.gradientColors.last(),
             style =  TextStyle(
                 fontWeight = FontWeight.Normal,

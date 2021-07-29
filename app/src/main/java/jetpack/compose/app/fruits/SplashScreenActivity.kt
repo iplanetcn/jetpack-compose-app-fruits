@@ -1,6 +1,7 @@
 package jetpack.compose.app.fruits
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -23,9 +24,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.lifecycleScope
 import jetpack.compose.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -38,7 +39,7 @@ class SplashScreenActivity : ComponentActivity() {
             }
         }
 
-        GlobalScope.launch(Dispatchers.Main) {
+        lifecycleScope.launch(Dispatchers.Main) {
             delay(1000)
             startActivity(Intent(this@SplashScreenActivity, OnboardingActivity::class.java))
             this@SplashScreenActivity.finish()
@@ -79,7 +80,13 @@ fun SplashScreenView() {
 
 }
 
-@Preview(showBackground = true)
+@Preview(
+    name = "Light Mode",
+    showBackground = true)
+@Preview(
+    name = "Dark Mode",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 fun DefaultPreview() {
     JetpackComposeAppFruitsTheme {

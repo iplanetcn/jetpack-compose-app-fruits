@@ -1,5 +1,6 @@
 package jetpack.compose.app.fruits
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -71,7 +72,13 @@ fun OnboardingView() {
 
 }
 
-@Preview(showBackground = true)
+@Preview(
+    name = "Light Mode",
+    showBackground = true)
+@Preview(
+    name = "Dark Mode",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 fun OnboardingViewPreview() {
     JetpackComposeAppFruitsTheme {
