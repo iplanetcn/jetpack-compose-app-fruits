@@ -4,24 +4,27 @@ import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.HorizontalPager
+import com.google.accompanist.pager.HorizontalPagerIndicator
+import com.google.accompanist.pager.rememberPagerState
 import jetpack.compose.app.fruits.data.fruitData
 import jetpack.compose.app.fruits.ui.components.FruitCardView
 import jetpack.compose.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 
 class OnboardingActivity : ComponentActivity() {
+    @ExperimentalPagerApi
+    @ExperimentalAnimationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -32,58 +35,43 @@ class OnboardingActivity : ComponentActivity() {
     }
 }
 
+@ExperimentalAnimationApi
+@ExperimentalPagerApi
 @Composable
 fun OnboardingView() {
-    val count = 6
-    val current = 0
-    val offset: Dp = 16.dp
-    val circleRadius = 8.dp
+    val count = 5
+    val pagerState = rememberPagerState(pageCount = count)
 
-    val cardWidth = LocalContext.current.resources.displayMetrics.run {
-        widthPixels / density
-    }.dp - offset * 2
-
-    Box (
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.BottomCenter
+    Box(
+        modifier = Modifier.fillMaxSize()
     ) {
-        LazyRow(
-            contentPadding = PaddingValues(offset),
-            horizontalArrangement = Arrangement.spacedBy(offset)
-        ) {
-            items(count) { index ->
-                FruitCardView(fruit = fruitData[index], screenWidthInDp = cardWidth)
-            }
+        HorizontalPager(
+            state = pagerState,
+            modifier = Modifier.matchParentSize()
+        ) { page ->
+            FruitCardView(fruit = fruitData[page])
         }
 
-        LazyRow(
-            modifier = Modifier.height(64.dp),
-            horizontalArrangement = Arrangement.spacedBy(circleRadius),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            items(count) { index ->
-                Box(
-                    modifier = Modifier
-                        .size(circleRadius)
-                        .background(
-                            if (index == current) Color.White else Color(0x40FFFFFF),
-                            shape = CircleShape
-                        )
-                        .clip(CircleShape)
-                )
-            }
-        }
+        HorizontalPagerIndicator(
+            pagerState = pagerState,
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 48.dp),
+            activeColor = colorResource(R.color.white)
+        )
     }
-
 }
 
 @Preview(
     name = "Light Mode",
-    showBackground = true)
+    showBackground = true
+)
 @Preview(
     name = "Dark Mode",
     uiMode = Configuration.UI_MODE_NIGHT_YES
 )
+@ExperimentalAnimationApi
+@ExperimentalPagerApi
 @Composable
 fun OnboardingViewPreview() {
     JetpackComposeAppFruitsTheme {

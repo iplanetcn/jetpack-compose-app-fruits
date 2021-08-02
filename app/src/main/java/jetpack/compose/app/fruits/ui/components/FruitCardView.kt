@@ -19,7 +19,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import jetpack.compose.app.fruits.MainActivity
@@ -28,14 +27,14 @@ import jetpack.compose.app.fruits.data.fruitData
 import jetpack.compose.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 
 @Composable
-fun FruitCardView(fruit: Fruit, screenWidthInDp: Dp = 320.dp) {
+fun FruitCardView(fruit: Fruit) {
     val context = LocalContext.current
 
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
             .fillMaxSize(1f)
-            .width(screenWidthInDp)
+            .padding(16.dp)
             .clip(shape = RoundedCornerShape(20.dp))
             .background(
                 brush = Brush.verticalGradient(
