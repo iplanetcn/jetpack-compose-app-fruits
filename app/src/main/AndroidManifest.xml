@@ -15,17 +15,17 @@
             android:name=".FruitDetailActivity"
             android:exported="true"
             android:label="@string/title_activity_fruit_detail"
-            android:theme="@style/Theme.JetpackComposeAppFruits.NoActionBar"/>
+            android:theme="@style/Theme.JetpackComposeAppFruits" />
         <activity
             android:name=".OnboardingActivity"
             android:exported="true"
             android:label="@string/title_activity_onboarding"
-            android:theme="@style/Theme.JetpackComposeAppFruits.NoActionBar" />
+            android:theme="@style/Theme.JetpackComposeAppFruits" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.JetpackComposeAppFruits.NoActionBar" />
+            android:theme="@style/Theme.JetpackComposeAppFruits" />
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true"

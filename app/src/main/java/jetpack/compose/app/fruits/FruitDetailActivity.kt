@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.view.WindowCompat
 import jetpack.compose.app.fruits.data.fruitData
 import jetpack.compose.app.fruits.ui.components.FruitDetailView
 import jetpack.compose.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
@@ -30,11 +33,14 @@ class FruitDetailActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val uuid: UUID = intent.getSerializableExtra(EXTRA_FRUIT_UUID) as UUID
         val fruit = fruitData.firstOrNull { fruit -> fruit.id == uuid }
-
-        setupStatusBarColor(color = fruit!!.gradientColors.first())
+//        setupStatusBarColor(color = fruit!!.gradientColors.first())
+        setupStatusBarColor(color = Color.Transparent)
+        window?.run {
+            WindowCompat.setDecorFitsSystemWindows(this, false)
+        }
         setContent {
             JetpackComposeAppFruitsTheme {
-                FruitDetailView(fruit)
+                FruitDetailView(fruit!!)
             }
         }
     }
@@ -43,4 +49,13 @@ class FruitDetailActivity : ComponentActivity() {
 fun ComponentActivity.setupStatusBarColor(color: Color) {
     window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
     window.statusBarColor = color.toArgb()
+}
+
+
+@Preview()
+@Composable
+fun Preview() {
+    JetpackComposeAppFruitsTheme {
+        FruitDetailView(fruitData.first())
+    }
 }

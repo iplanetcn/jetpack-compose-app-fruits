@@ -106,7 +106,7 @@ fun FruitDetailView(fruit: Fruit) {
         // link
         SourceLinkView(modifier = Modifier.padding(horizontal = 8.dp), keyword = fruit.title)
 
-        Spacer(modifier = Modifier.width(8.dp))
+        Spacer(modifier = Modifier.height(32.dp))
 
     }
 }

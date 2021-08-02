@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -38,6 +39,10 @@ fun OnboardingView() {
     val offset: Dp = 16.dp
     val circleRadius = 8.dp
 
+    val cardWidth = LocalContext.current.resources.displayMetrics.run {
+        widthPixels / density
+    }.dp - offset * 2
+
     Box (
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.BottomCenter
@@ -47,7 +52,7 @@ fun OnboardingView() {
             horizontalArrangement = Arrangement.spacedBy(offset)
         ) {
             items(count) { index ->
-                FruitCardView(fruit = fruitData[index])
+                FruitCardView(fruit = fruitData[index], screenWidthInDp = cardWidth)
             }
         }
 
