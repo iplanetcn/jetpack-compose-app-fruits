@@ -12,6 +12,11 @@
         android:theme="@style/Theme.JetpackComposeAppFruits"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".SettingsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/Theme.JetpackComposeAppFruits.NoActionBar" />
+        <activity
             android:name=".FruitDetailActivity"
             android:exported="true"
             android:label="@string/title_activity_fruit_detail"
@@ -32,6 +37,7 @@
             android:theme="@style/Theme.JetpackComposeAppFruits.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

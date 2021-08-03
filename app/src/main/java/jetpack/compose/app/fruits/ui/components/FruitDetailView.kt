@@ -1,7 +1,8 @@
 package jetpack.compose.app.fruits.ui.components
 
+import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -23,19 +24,21 @@ import androidx.compose.ui.unit.sp
 import jetpack.compose.app.fruits.data.Fruit
 import jetpack.compose.app.fruits.data.fruitData
 import jetpack.compose.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
-import kotlinx.coroutines.delay
 import java.util.*
 
 @Composable
 fun FruitDetailView(fruit: Fruit) {
     val isDefault = remember { mutableStateOf(true) }
     val imageScale: Float by animateFloatAsState(
-        if (isDefault.value) 0.4f else 1f,
-        spring()
+        if (isDefault.value) 0.5f else 1f,
+        animationSpec = tween(
+            durationMillis = 300,
+            delayMillis = 50,
+            easing = FastOutLinearInEasing
+        )
     )
 
     LaunchedEffect(true) {
-        delay(100)
         isDefault.value = false
     }
 

@@ -176,4 +176,13 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
     </style>
+
+    <style name="Theme.JetpackComposeAppFruits.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.JetpackComposeAppFruits.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.JetpackComposeAppFruits.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

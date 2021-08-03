@@ -17,9 +17,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.view.WindowCompat
 import jetpack.compose.app.fruits.data.fruitData
 import jetpack.compose.app.fruits.ui.components.FruitRowView
 import jetpack.compose.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
@@ -36,6 +38,10 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setupStatusBarColor(color = Color.Transparent)
+        window?.run {
+            WindowCompat.setDecorFitsSystemWindows(this, false)
+        }
         setContent {
             JetpackComposeAppFruitsTheme {
                 // A surface container using the 'background' color from the theme
@@ -44,14 +50,15 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-
-        setupStatusBarColor(Color.White)
     }
 }
 
 @Composable
 fun MainAppBar() {
+    val context = LocalContext.current
+
     TopAppBar(
+        modifier = Modifier.padding(top = 32.dp),
         backgroundColor = Color.White,
         elevation = 0.dp
     ) {
@@ -66,7 +73,9 @@ fun MainAppBar() {
 
         Spacer(modifier = Modifier.weight(1f))
 
-        IconButton(onClick = { /*TODO*/ }) {
+        IconButton(onClick = {
+            SettingsActivity.start(context)
+        }) {
             Icon(imageVector = Icons.Default.Settings, contentDescription = "", tint = Color.Black)
         }
     }
