@@ -18,6 +18,8 @@ import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.PhoneAndroid
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import jetpack.compose.app.fruits.ui.components.SettingsLabelView
 import jetpack.compose.app.fruits.ui.components.SettingsRowView
+import jetpack.compose.app.fruits.ui.theme.ColorLimeLight
 import jetpack.compose.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 import jetpack.compose.app.fruits.ui.theme.Typography
 
@@ -59,6 +62,7 @@ class SettingsActivity : ComponentActivity() {
 @Composable
 fun SettingsView() {
     val context = LocalContext.current
+    val checkedState = remember{ mutableStateOf(true) }
 
     Box(
         Modifier
@@ -96,8 +100,8 @@ fun SettingsView() {
             Spacer(modifier = Modifier.padding(16.dp))
 
             // Section One
-            Box (
-                modifier = Modifier.background(Color(0,0,0,8), shape = RoundedCornerShape(16.dp))
+            Box(
+                modifier = Modifier.background(Color(0, 0, 0, 8), shape = RoundedCornerShape(16.dp))
             ) {
                 Column {
                     SettingsLabelView(labelText = "fructus", labelImage = Icons.Outlined.Info)
@@ -126,8 +130,8 @@ fun SettingsView() {
             Spacer(modifier = Modifier.padding(16.dp))
 
             // Section Two
-            Box (
-                modifier = Modifier.background(Color(0,0,0,8), shape = RoundedCornerShape(16.dp))
+            Box(
+                modifier = Modifier.background(Color(0, 0, 0, 8), shape = RoundedCornerShape(16.dp))
             ) {
                 Column {
                     SettingsLabelView(
@@ -150,11 +154,21 @@ fun SettingsView() {
                             .background(Color.White, shape = RoundedCornerShape(16.dp))
                     ) {
                         Spacer(modifier = Modifier.padding(16.dp))
-                        Text(text = "RESTART")
+                        Text(
+                            color = if (checkedState.value) ColorLimeLight else Color.DarkGray,
+                            text = if (checkedState.value)  "RESTARTED" else "RESTART",
+                            style = Typography.button
+                        )
                         Spacer(Modifier.weight(1f, true))
-                        Switch(checked = false, onCheckedChange = {
-                            // TODO
-                        })
+                        Switch(
+                            checked = checkedState.value,
+                            onCheckedChange = {
+                                checkedState.value = it
+                            },
+                            colors = SwitchDefaults.colors(
+                                checkedThumbColor = ColorLimeLight
+                            )
+                        )
                         Spacer(modifier = Modifier.padding(16.dp))
                     }
                 }
@@ -163,8 +177,8 @@ fun SettingsView() {
             Spacer(modifier = Modifier.padding(16.dp))
 
             // Section Three
-            Box (
-                modifier = Modifier.background(Color(0,0,0,8), shape = RoundedCornerShape(16.dp))
+            Box(
+                modifier = Modifier.background(Color(0, 0, 0, 8), shape = RoundedCornerShape(16.dp))
             ) {
                 Column {
                     SettingsLabelView(

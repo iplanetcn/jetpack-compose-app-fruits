@@ -60,7 +60,7 @@ fun MainAppBar() {
     TopAppBar(
         modifier = Modifier.padding(top = 32.dp),
         backgroundColor = Color.White,
-        elevation = 0.dp
+        elevation = 0.dp,
     ) {
         Text(
             text = "Fruits",
