@@ -13,8 +13,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.outlined.Brush
-import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.PhoneAndroid
 import androidx.compose.runtime.Composable
@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
@@ -60,8 +61,48 @@ class SettingsActivity : ComponentActivity() {
 }
 
 @Composable
-fun SettingsView() {
+fun SettingsAppBar() {
     val context = LocalContext.current
+
+    TopAppBar(
+        modifier = Modifier.padding(top = 32.dp),
+        backgroundColor = Color.White,
+        elevation = 0.dp,
+    ) {
+        Text(
+            text = "Settings",
+            textAlign = TextAlign.Center,
+            style = Typography.h4,
+            modifier = Modifier
+                .padding(8.dp)
+                .wrapContentSize(Alignment.Center)
+        )
+
+        Spacer(modifier = Modifier.weight(1f))
+
+        IconButton(onClick = {
+            if (context is SettingsActivity) {
+                context.finish()
+            }
+        }) {
+            Icon(imageVector = Icons.Default.Close, contentDescription = "", tint = Color.Black)
+        }
+    }
+}
+
+
+@Composable
+fun SettingsView() {
+    Scaffold(
+        topBar = { SettingsAppBar() },
+        content = {
+            SettingsContentView()
+        }
+    )
+}
+
+@Composable
+fun SettingsContentView() {
     val checkedState = remember{ mutableStateOf(true) }
 
     Box(
@@ -74,31 +115,6 @@ fun SettingsView() {
                 .verticalScroll(rememberScrollState())
                 .fillMaxSize()
         ) {
-            // Top
-            Spacer(modifier = Modifier.padding(24.dp))
-
-            // Close Button
-            Row {
-                Spacer(modifier = Modifier.weight(1f, true))
-                IconButton(
-                    onClick = {
-                        if (context is SettingsActivity) {
-                            context.finish()
-                        }
-                    },
-                ) {
-                    Icon(imageVector = Icons.Outlined.Close, contentDescription = "")
-                }
-            }
-
-            // Title
-            Text(
-                text = "Settings",
-                style = Typography.h4
-            )
-
-            Spacer(modifier = Modifier.padding(16.dp))
-
             // Section One
             Box(
                 modifier = Modifier.background(Color(0, 0, 0, 8), shape = RoundedCornerShape(16.dp))

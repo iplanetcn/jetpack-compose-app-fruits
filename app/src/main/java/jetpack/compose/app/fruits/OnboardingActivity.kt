@@ -39,7 +39,7 @@ class OnboardingActivity : ComponentActivity() {
 @ExperimentalPagerApi
 @Composable
 fun OnboardingView() {
-    val count = 5
+    val count = 6
     val pagerState = rememberPagerState(pageCount = count)
 
     Box(
