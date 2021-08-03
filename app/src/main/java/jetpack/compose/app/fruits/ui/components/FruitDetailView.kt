@@ -1,14 +1,17 @@
 package jetpack.compose.app.fruits.ui.components
 
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -20,10 +23,22 @@ import androidx.compose.ui.unit.sp
 import jetpack.compose.app.fruits.data.Fruit
 import jetpack.compose.app.fruits.data.fruitData
 import jetpack.compose.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
+import kotlinx.coroutines.delay
 import java.util.*
 
 @Composable
 fun FruitDetailView(fruit: Fruit) {
+    val isDefault = remember { mutableStateOf(true) }
+    val imageScale: Float by animateFloatAsState(
+        if (isDefault.value) 0.4f else 1f,
+        spring()
+    )
+
+    LaunchedEffect(true) {
+        delay(100)
+        isDefault.value = false
+    }
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(10.dp),
@@ -31,9 +46,8 @@ fun FruitDetailView(fruit: Fruit) {
             .background(Color.White)
             .verticalScroll(rememberScrollState())
     ) {
-        // icon
+        // Image
         Box(
-            contentAlignment = Alignment.Center,
             modifier = Modifier
                 .fillMaxWidth()
                 .aspectRatio(0.8f)
@@ -47,6 +61,9 @@ fun FruitDetailView(fruit: Fruit) {
                 )
         ) {
             Image(
+                modifier = Modifier
+                    .scale(imageScale)
+                    .fillMaxSize(),
                 painter = painterResource(id = fruit.image),
                 contentDescription = "fruit icon",
             )
@@ -78,12 +95,12 @@ fun FruitDetailView(fruit: Fruit) {
         )
 
         //NUTRIENT
-        FruitNutrientView(modifier = Modifier.padding(horizontal = 8.dp),fruit = fruit)
+        FruitNutrientView(modifier = Modifier.padding(horizontal = 8.dp), fruit = fruit)
         //SUBHEADING
         Text(
             text = "Learn more about ${fruit.title}".uppercase(Locale.ENGLISH),
             color = fruit.gradientColors.last(),
-            style =  TextStyle(
+            style = TextStyle(
                 fontWeight = FontWeight.Normal,
                 fontSize = 20.sp,
                 letterSpacing = 0.sp

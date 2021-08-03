@@ -18,6 +18,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -34,7 +35,7 @@ fun FruitCardView(fruit: Fruit) {
         contentAlignment = Alignment.Center,
         modifier = Modifier
             .fillMaxSize(1f)
-            .padding(16.dp)
+            .padding(start = 8.dp, top = 16.dp, end = 8.dp, bottom = 16.dp)
             .clip(shape = RoundedCornerShape(20.dp))
             .background(
                 brush = Brush.verticalGradient(
@@ -82,7 +83,8 @@ fun FruitCardView(fruit: Fruit) {
                     fontSize = 16.sp,
                     letterSpacing = 0.15.sp
                 ),
-                modifier = Modifier.padding(horizontal = 16.dp)
+                modifier = Modifier.padding(horizontal = 16.dp),
+                textAlign = TextAlign.Center
             )
 
             Spacer(modifier = Modifier.height(20.dp))

@@ -2,7 +2,6 @@ package jetpack.compose.app.fruits
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -57,9 +56,9 @@ fun MainAppBar() {
         elevation = 0.dp
     ) {
         Text(
-            text = "Fruit",
+            text = "Fruits",
             textAlign = TextAlign.Center,
-            style = Typography.h5,
+            style = Typography.h4,
             modifier = Modifier
                 .padding(8.dp)
                 .wrapContentSize(Alignment.Center)
@@ -83,6 +82,7 @@ fun MainView() {
                     FruitRowView(fruit = item)
                 }
             }
+
         }
     )
 }
@@ -90,10 +90,6 @@ fun MainView() {
 @Preview(
     name = "Light Mode",
     showBackground = true
-)
-@Preview(
-    name = "Dark Mode",
-    uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
 fun MainViewPreview() {

@@ -1,5 +1,6 @@
 package jetpack.compose.app.fruits.ui.components
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -25,19 +26,18 @@ import jetpack.compose.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 fun StartButtonView(onClick: () -> Unit) {
     TextButton(
         onClick,
-        Modifier
-            .border(width = 1.25.dp, color = Color.White, shape = CircleShape)
+        Modifier.border(width = 1.25.dp, color = Color.White, shape = CircleShape)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp)
         ) {
             Text(
                 text = stringResource(id = R.string.button_text_start),
                 color = Color.White,
                 style = TextStyle(
                     fontWeight = FontWeight.Normal,
-                    fontSize = 20.sp,
+                    fontSize = 18.sp,
                     letterSpacing = 1.25.sp
                 )
             )
@@ -52,7 +52,7 @@ fun StartButtonView(onClick: () -> Unit) {
                     imageVector = Icons.Filled.ArrowForward,
                     contentDescription = "icon arrow forward",
                     tint = Color.White,
-                    modifier = Modifier.size(24.dp)
+                    modifier = Modifier.size(20.dp)
                 )
             }
 
@@ -61,7 +61,7 @@ fun StartButtonView(onClick: () -> Unit) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
 @Composable
 fun StartButtonViewPreview() {
     JetpackComposeAppFruitsTheme {

@@ -33,7 +33,6 @@ class FruitDetailActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val uuid: UUID = intent.getSerializableExtra(EXTRA_FRUIT_UUID) as UUID
         val fruit = fruitData.firstOrNull { fruit -> fruit.id == uuid }
-//        setupStatusBarColor(color = fruit!!.gradientColors.first())
         setupStatusBarColor(color = Color.Transparent)
         window?.run {
             WindowCompat.setDecorFitsSystemWindows(this, false)
