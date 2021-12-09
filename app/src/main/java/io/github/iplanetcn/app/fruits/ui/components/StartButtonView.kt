@@ -61,7 +61,7 @@ fun StartButtonView(onClick: () -> Unit) {
     }
 }
 
-@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
+@Preview(showBackground = false, uiMode = UI_MODE_NIGHT_YES)
 @Composable
 fun StartButtonViewPreview() {
     JetpackComposeAppFruitsTheme {

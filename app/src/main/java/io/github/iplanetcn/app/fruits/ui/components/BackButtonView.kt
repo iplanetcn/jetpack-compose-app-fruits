@@ -1,9 +1,12 @@
 package io.github.iplanetcn.app.fruits.ui.components
 
 import android.content.res.Configuration
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.material.TextButton
 import androidx.compose.material.icons.Icons
@@ -26,8 +29,8 @@ fun BackButtonView(onClick: () -> Unit) {
     TextButton(
         onClick,
         Modifier
-//            .border(width = 1.25.dp, color = Color.White, shape = CircleShape)
-//            .background(color = Color(0, 0, 0, 88), shape = CircleShape)
+            .border(width = 1.25.dp, color = Color.White, shape = CircleShape)
+            .background(color = Color(0, 0, 0, 88), shape = CircleShape)
             .width(48.dp)
             .height(48.dp)
     ) {
@@ -40,7 +43,7 @@ fun BackButtonView(onClick: () -> Unit) {
     }
 }
 
-@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Preview(showBackground = false, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun BackButtonViewPreview() {
     JetpackComposeAppFruitsTheme {

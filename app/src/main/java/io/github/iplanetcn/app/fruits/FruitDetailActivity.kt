@@ -51,7 +51,7 @@ fun ComponentActivity.setupStatusBarColor(color: Color) {
 }
 
 
-@Preview()
+@Preview
 @Composable
 fun Preview() {
     JetpackComposeAppFruitsTheme {
