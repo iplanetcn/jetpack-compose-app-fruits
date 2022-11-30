@@ -189,7 +189,7 @@
     <style name="Theme.JetpackComposeAppFruits.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/color_lime_dark</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
-        <item name="windowSplashScreenAnimationDuration">200</item>
+        <item name="windowSplashScreenAnimationDuration">@integer/duration_splash_animation</item>
         <item name="postSplashScreenTheme">@style/Theme.JetpackComposeAppFruits</item>
     </style>
 </resources>
