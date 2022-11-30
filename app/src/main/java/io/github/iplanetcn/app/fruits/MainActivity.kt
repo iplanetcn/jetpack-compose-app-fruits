@@ -3,7 +3,6 @@ package io.github.iplanetcn.app.fruits
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
@@ -27,7 +26,7 @@ import io.github.iplanetcn.app.fruits.ui.components.FruitRowView
 import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 import io.github.iplanetcn.app.fruits.ui.theme.Typography
 
-class MainActivity : ComponentActivity() {
+class MainActivity : BaseActivity() {
     companion object {
         @JvmStatic
         fun start(context: Context) {
@@ -84,16 +83,14 @@ fun MainAppBar() {
 @Composable
 fun MainView() {
     Scaffold(
-        topBar = { MainAppBar() },
-        content = {
-            LazyColumn {
-                items(fruitData) { item ->
-                    FruitRowView(fruit = item)
-                }
+        topBar = { MainAppBar() }
+    ) {
+        LazyColumn {
+            items(fruitData) { item ->
+                FruitRowView(fruit = item)
             }
-
         }
-    )
+    }
 }
 
 @Preview(

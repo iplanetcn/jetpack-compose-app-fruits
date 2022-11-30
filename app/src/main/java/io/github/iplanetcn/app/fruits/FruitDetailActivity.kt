@@ -14,10 +14,11 @@ import androidx.core.view.WindowCompat
 import io.github.iplanetcn.app.fruits.data.fruitData
 import io.github.iplanetcn.app.fruits.ui.components.FruitDetailView
 import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
+import io.github.iplanetcn.app.fruits.utils.getSerializable
 import java.util.*
 
 
-class FruitDetailActivity : ComponentActivity() {
+class FruitDetailActivity : BaseActivity() {
     companion object {
         private const val EXTRA_FRUIT_UUID = "fruit_uuid"
 
@@ -31,7 +32,7 @@ class FruitDetailActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val uuid: UUID = intent.getSerializableExtra(EXTRA_FRUIT_UUID) as UUID
+        val uuid: UUID = intent.getSerializable(EXTRA_FRUIT_UUID, UUID::class.java)
         val fruit = fruitData.firstOrNull { fruit -> fruit.id == uuid }
         setupStatusBarColor(color = Color.Transparent)
         window?.run {

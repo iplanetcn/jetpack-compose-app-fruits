@@ -25,22 +25,20 @@
             android:name=".OnboardingActivity"
             android:exported="true"
             android:label="@string/title_activity_onboarding"
-            android:theme="@style/Theme.JetpackComposeAppFruits.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.JetpackComposeAppFruits.NoActionBar"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.JetpackComposeAppFruits.NoActionBar"/>
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".RoutingActivity"
             android:exported="true"
-            android:theme="@style/Theme.JetpackComposeAppFruits.Fullscreen">
+            android:theme="@style/Theme.JetpackComposeAppFruits.Starting">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

@@ -3,7 +3,6 @@ package io.github.iplanetcn.app.fruits
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -35,7 +34,7 @@ import io.github.iplanetcn.app.fruits.ui.theme.ColorLimeLight
 import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 import io.github.iplanetcn.app.fruits.ui.theme.Typography
 
-class SettingsActivity : ComponentActivity() {
+class SettingsActivity : BaseActivity() {
     companion object {
         @JvmStatic
         fun start(context: Context) {
@@ -95,15 +94,14 @@ fun SettingsAppBar() {
 fun SettingsView() {
     Scaffold(
         topBar = { SettingsAppBar() },
-        content = {
-            SettingsContentView()
-        }
-    )
+    ) {
+        SettingsContentView()
+    }
 }
 
 @Composable
 fun SettingsContentView() {
-    val checkedState = remember{ mutableStateOf(true) }
+    val checkedState = remember { mutableStateOf(true) }
 
     Box(
         Modifier
@@ -138,7 +136,7 @@ fun SettingsContentView() {
                         }
 
                         Spacer(modifier = Modifier.padding(8.dp))
-                        Text(text = "Most fruit are naturallt low in fat, sodium, and calories. None have cholesterol. Fruits are sources of many essential nutrients, including potassium, dietary fiber, vitamins, and much more")
+                        Text(text = "Most fruit are naturally low in fat, sodium, and calories. None have cholesterol. Fruits are sources of many essential nutrients, including potassium, dietary fiber, vitamins, and much more.")
                     }
                 }
             }
@@ -172,7 +170,7 @@ fun SettingsContentView() {
                         Spacer(modifier = Modifier.padding(16.dp))
                         Text(
                             color = if (checkedState.value) ColorLimeLight else Color.DarkGray,
-                            text = if (checkedState.value)  "RESTARTED" else "RESTART",
+                            text = if (checkedState.value) "RESTARTED" else "RESTART",
                             style = Typography.button
                         )
                         Spacer(Modifier.weight(1f, true))
@@ -203,16 +201,11 @@ fun SettingsContentView() {
                     )
                     SettingsRowView(name = "Developer", content = "John")
                     SettingsRowView(name = "Designer", content = "Robert petras")
-                    SettingsRowView(name = "Compatibility", content = "Android Lollipop")
+                    SettingsRowView(name = "Compatibility", content = "Android Lollipop +")
                     SettingsRowView(
-                        name = "Website",
-                        linkLabel = "Bethel",
-                        linkDestination = "Bethel.edu"
-                    )
-                    SettingsRowView(
-                        name = "Website",
-                        linkLabel = "Facebook",
-                        linkDestination = "facebook.com.edu"
+                        name = "Github",
+                        linkLabel = "link",
+                        linkDestination = "https://github.com/iplanetcn/jetpack-compose-app-fruits"
                     )
                     SettingsRowView(name = "Jetpack Compose", content = "1.0.0")
                     SettingsRowView(name = "Version", content = "1.0.0")
