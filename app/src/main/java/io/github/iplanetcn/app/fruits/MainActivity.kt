@@ -85,7 +85,7 @@ fun MainView() {
     Scaffold(
         topBar = { MainAppBar() }
     ) {
-        LazyColumn {
+        LazyColumn(Modifier.padding(it)) {
             items(fruitData) { item ->
                 FruitRowView(fruit = item)
             }

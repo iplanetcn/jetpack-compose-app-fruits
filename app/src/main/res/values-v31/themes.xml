@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.JetpackComposeAppFruits.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/color_lime_dark</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="windowSplashScreenAnimationDuration">200</item>
+        <item name="android:windowSplashScreenBrandingImage">@drawable/ic_brand</item>
+        <item name="postSplashScreenTheme">@style/Theme.JetpackComposeAppFruits</item>
+    </style>
+</resources>

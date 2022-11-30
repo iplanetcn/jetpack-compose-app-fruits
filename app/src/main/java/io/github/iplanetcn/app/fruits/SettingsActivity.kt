@@ -95,16 +95,16 @@ fun SettingsView() {
     Scaffold(
         topBar = { SettingsAppBar() },
     ) {
-        SettingsContentView()
+        SettingsContentView(Modifier.padding(it))
     }
 }
 
 @Composable
-fun SettingsContentView() {
+fun SettingsContentView(modifier: Modifier) {
     val checkedState = remember { mutableStateOf(true) }
 
     Box(
-        Modifier
+        modifier
             .padding(horizontal = 16.dp)
             .fillMaxSize()
     ) {
@@ -203,11 +203,11 @@ fun SettingsContentView() {
                     SettingsRowView(name = "Designer", content = "Robert petras")
                     SettingsRowView(name = "Compatibility", content = "Android Lollipop +")
                     SettingsRowView(
-                        name = "Github",
-                        linkLabel = "link",
+                        name = "Source Code",
+                        linkLabel = "github",
                         linkDestination = "https://github.com/iplanetcn/jetpack-compose-app-fruits"
                     )
-                    SettingsRowView(name = "Jetpack Compose", content = "1.0.0")
+                    SettingsRowView(name = "Jetpack Compose", content = "1.3.1")
                     SettingsRowView(name = "Version", content = "1.0.0")
                 }
             }

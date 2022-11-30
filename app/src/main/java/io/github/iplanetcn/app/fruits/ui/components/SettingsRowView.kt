@@ -12,7 +12,7 @@ import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Send
+import androidx.compose.material.icons.filled.Link
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -70,7 +70,7 @@ fun SettingsRowView(
                     append(linkLabel)
                     addStringAnnotation(
                         tag = "URL",
-                        annotation = "https://$linkDestination",
+                        annotation = linkDestination,
                         start = 0, end = length
                     )
                     toAnnotatedString()
@@ -92,9 +92,9 @@ fun SettingsRowView(
                             }
                     })
                 Icon(
-                    imageVector = Icons.Outlined.Send,
+                    imageVector = Icons.Filled.Link,
                     contentDescription = "",
-                    tint = Color.Red
+                    tint = Color.Blue
                 )
             }
         }
@@ -115,5 +115,5 @@ fun SettingsRowViewPreviewFirst() {
 @Preview
 @Composable
 fun SettingsRowViewPreviewSecond() {
-    SettingsRowView(name = "Website", linkLabel = "Facebook", linkDestination = "facebook.com")
+    SettingsRowView(name = "Source Code", linkLabel = "github", linkDestination = "https://github.com")
 }
