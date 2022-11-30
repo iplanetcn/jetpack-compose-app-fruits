@@ -68,7 +68,7 @@ fun FruitDetailView(fruit: Fruit) {
                     .scale(imageScale)
                     .fillMaxSize(),
                 painter = painterResource(id = fruit.image),
-                contentDescription = "fruit icon",
+                contentDescription = "fruit ${fruit.title} icon",
             )
         }
 

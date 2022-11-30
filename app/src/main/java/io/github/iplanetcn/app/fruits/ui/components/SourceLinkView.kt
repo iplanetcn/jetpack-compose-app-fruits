@@ -82,7 +82,7 @@ fun SourceLinkView(modifier: Modifier = Modifier, keyword: String = String()) {
 
         Icon(
             imageVector = Icons.Filled.Send,
-            contentDescription = "description for jump icon",
+            contentDescription = "jump icon",
             tint = Color.Black,
             modifier = Modifier.size(24.dp)
         )

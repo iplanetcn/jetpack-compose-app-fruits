@@ -26,7 +26,11 @@ import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 fun StartButtonView(onClick: () -> Unit) {
     TextButton(
         onClick,
-        Modifier.border(width = 1.25.dp, color = Color.White, shape = CircleShape)
+        Modifier.border(
+            width = 1.25.dp,
+            color = Color.White,
+            shape = CircleShape
+        )
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,

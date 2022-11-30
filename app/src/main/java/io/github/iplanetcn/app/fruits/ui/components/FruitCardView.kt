@@ -54,7 +54,7 @@ fun FruitCardView(fruit: Fruit) {
             //FRUIT IMAGE
             Image(
                 painter = painterResource(fruit.image),
-                contentDescription = "Content description for fruit",
+                contentDescription = "fruit ${fruit.title} image",
                 contentScale = ContentScale.Fit
             )
 

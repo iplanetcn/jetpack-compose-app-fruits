@@ -36,7 +36,7 @@ fun BackButtonView(onClick: () -> Unit) {
     ) {
         Icon(
             imageVector = Icons.Filled.ArrowBack,
-            contentDescription = "icon arrow forward",
+            contentDescription = "icon arrow back",
             tint = Color.White,
             modifier = Modifier.size(32.dp)
         )

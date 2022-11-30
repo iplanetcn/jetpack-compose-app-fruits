@@ -55,7 +55,7 @@ fun FruitRowView(fruit: Fruit) {
         ) {
             Image(
                 painter = painterResource(id = fruit.image),
-                contentDescription = "fruit icon",
+                contentDescription = "fruit ${fruit.title} icon",
             )
         }
 

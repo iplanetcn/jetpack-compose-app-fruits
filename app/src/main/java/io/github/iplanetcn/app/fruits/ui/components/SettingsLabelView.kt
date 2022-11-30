@@ -35,7 +35,7 @@ fun SettingsLabelView(labelText: String, labelImage: ImageVector) {
             style = Typography.h6
         )
         Spacer(Modifier.weight(1f, true))
-        Icon(imageVector = labelImage, contentDescription = "icon")
+        Icon(imageVector = labelImage, contentDescription = "information icon")
 
     }
 }
