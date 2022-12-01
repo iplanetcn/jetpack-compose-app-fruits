@@ -5,6 +5,10 @@ plugins {
     id 'kotlin-parcelize'
 }
 
+InputStream inputStream = rootProject.file('local.properties').newDataInputStream()
+Properties properties = new Properties()
+properties.load(inputStream)
+
 android {
     compileSdkVersion 33
     namespace 'io.github.iplanetcn.app.fruits'
@@ -13,7 +17,7 @@ android {
         applicationId "io.github.iplanetcn.app.fruits"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode 3
+        versionCode 4
         versionName "1.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -22,9 +26,35 @@ android {
         }
     }
 
-    buildTypes {
+    signingConfigs {
+        debug {
+            storeFile file(properties.getProperty("DEBUG_KEY_STORE_FILE_PATH"))
+            keyAlias properties.getProperty("DEBUG_KEY_ALIAS")
+            keyPassword properties.getProperty("DEBUG_KEY_PASSWORD")
+            storePassword properties.getProperty("DEBUG_STORE_PASSWORD")
+        }
+
         release {
+            storeFile file(properties.getProperty("KEY_STORE_FILE_PATH"))
+            keyAlias properties.getProperty("KEY_ALIAS")
+            keyPassword properties.getProperty("KEY_PASSWORD")
+            storePassword properties.getProperty("STORE_PASSWORD")
+        }
+    }
+
+    buildTypes {
+        debug {
             minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.debug
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
