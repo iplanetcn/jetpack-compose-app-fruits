@@ -157,7 +157,7 @@ fun SettingsContentView(modifier: Modifier) {
                     )
                     Text(
                         modifier = Modifier.padding(16.dp),
-                        text = "If you wish, you can restart the application by toggle the switch in this box. that way it start the onoarding process and you will see the welcome screen again. "
+                        text = "If you wish, you can restart the application by toggle the switch in this box. that way it start the onboarding process and you will see the welcome screen again. "
                     )
 
                     Row(
@@ -208,7 +208,7 @@ fun SettingsContentView(modifier: Modifier) {
                         linkDestination = "https://github.com/iplanetcn/jetpack-compose-app-fruits"
                     )
                     SettingsRowView(name = "Jetpack Compose", content = "1.3.1")
-                    SettingsRowView(name = "Version", content = "1.0.0")
+                    SettingsRowView(name = "Version", content = BuildConfig.VERSION_NAME)
                 }
             }
 
