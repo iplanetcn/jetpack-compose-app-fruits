@@ -12,6 +12,7 @@ properties.load(inputStream)
 android {
     compileSdkVersion 33
     namespace 'io.github.iplanetcn.app.fruits'
+    testNamespace 'io.github.iplanetcn.app.fruits.test'
 
     defaultConfig {
         applicationId "io.github.iplanetcn.app.fruits"
