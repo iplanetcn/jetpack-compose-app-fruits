@@ -12,7 +12,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
@@ -32,7 +31,7 @@ fun FruitRowView(fruit: Fruit) {
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.background(Color.White)
+        modifier = Modifier
             .padding(8.dp)
             .clickable(role = Role.Button) {
                 FruitDetailActivity.start(context, fruit.id)
@@ -65,7 +64,6 @@ fun FruitRowView(fruit: Fruit) {
             //FRUIT TITLE
             Text(
                 text = fruit.title,
-                color = Color.Black,
                 style = TextStyle(
                     fontWeight = FontWeight.Bold,
                     fontSize = 24.sp,
@@ -76,7 +74,6 @@ fun FruitRowView(fruit: Fruit) {
             //FRUIT HEADLINE
             Text(
                 text = fruit.headline,
-                color = Color.Gray,
                 style = TextStyle(
                     fontWeight = FontWeight.Normal,
                     fontSize = 14.sp,
@@ -88,13 +85,8 @@ fun FruitRowView(fruit: Fruit) {
 }
 
 
-@Preview(
-    name = "Light Mode",
-    showBackground = true)
-@Preview(
-    name = "Dark Mode",
-    uiMode = Configuration.UI_MODE_NIGHT_YES
-)
+@Preview(name = "Light Mode", uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview(name = "Dark Mode", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun FruitRowViewPreview() {
     JetpackComposeAppFruitsTheme {

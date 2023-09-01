@@ -2,6 +2,8 @@ package io.github.iplanetcn.app.fruits
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration.UI_MODE_NIGHT_NO
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Spacer
@@ -58,7 +60,6 @@ fun MainAppBar() {
 
     TopAppBar(
         modifier = Modifier.padding(top = 32.dp),
-        backgroundColor = Color.White,
         elevation = 0.dp,
     ) {
         Text(
@@ -75,7 +76,7 @@ fun MainAppBar() {
         IconButton(onClick = {
             SettingsActivity.start(context)
         }) {
-            Icon(imageVector = Icons.Default.Settings, contentDescription = "", tint = Color.Black)
+            Icon(imageVector = Icons.Default.Settings, contentDescription = "")
         }
     }
 }
@@ -93,10 +94,8 @@ fun MainView() {
     }
 }
 
-@Preview(
-    name = "Light Mode",
-    showBackground = true
-)
+@Preview(name = "Light theme", uiMode = UI_MODE_NIGHT_NO, showSystemUi = true)
+@Preview(name = "Dark theme", uiMode = UI_MODE_NIGHT_YES, showSystemUi = true)
 @Composable
 fun MainViewPreview() {
     JetpackComposeAppFruitsTheme {
