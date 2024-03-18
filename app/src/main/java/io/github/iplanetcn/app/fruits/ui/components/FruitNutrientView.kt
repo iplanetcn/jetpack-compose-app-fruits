@@ -1,14 +1,18 @@
 package io.github.iplanetcn.app.fruits.ui.components
 
+import android.content.res.Configuration
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.KeyboardArrowRight
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.KeyboardArrowRight
 import androidx.compose.runtime.*
@@ -25,7 +29,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.github.iplanetcn.app.fruits.data.Fruit
 import io.github.iplanetcn.app.fruits.data.fruitData
+import io.github.iplanetcn.app.fruits.ui.theme.DarkCardColor
 import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
+import io.github.iplanetcn.app.fruits.ui.theme.LightCardColor
 import io.github.iplanetcn.app.fruits.ui.theme.Typography
 
 @Composable
@@ -35,11 +41,12 @@ fun FruitNutrientView(
 ) {
     val nutrient = arrayOf("Energy", "Sugar", "Fat", "Protein", "Vitamins", "Minerals")
     var expandedNutrient by remember { mutableStateOf<Array<String>>(emptyArray()) }
+    val cardColor: Color =  if (isSystemInDarkTheme()) DarkCardColor else LightCardColor
 
     Column(
         modifier = modifier
             .clip(shape = RoundedCornerShape(10.dp))
-            .background(color = Color(0x10000000))
+            .background(color = cardColor)
             .padding(horizontal = 16.dp, vertical = 8.dp)
             .animateContentSize(),
         verticalArrangement = Arrangement.spacedBy(4.dp)
@@ -51,7 +58,6 @@ fun FruitNutrientView(
         ) {
             Text(
                 text = "Nutritional value per 100g",
-                color = Color.Black,
                 style = Typography.body1,
                 modifier = Modifier.weight(1f)
             )
@@ -64,9 +70,8 @@ fun FruitNutrientView(
                 modifier = Modifier.align(Alignment.CenterVertically)
             ) {
                 Icon(
-                    imageVector = Icons.Outlined.KeyboardArrowRight,
+                    imageVector = Icons.AutoMirrored.Outlined.KeyboardArrowRight,
                     contentDescription = "icon arrow forward",
-                    tint = Color.Black,
                     modifier = Modifier
                         .size(24.dp)
                         .rotate(if (expandedNutrient.isNotEmpty()) 90f else 0f)
@@ -77,7 +82,7 @@ fun FruitNutrientView(
 
         if (expandedNutrient.isNotEmpty()) {
             nutrient.forEachIndexed { index, item ->
-                Divider(color = Color.DarkGray, thickness = 0.5.dp)
+                Divider(thickness = 0.5.dp)
 
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
@@ -101,7 +106,6 @@ fun FruitNutrientView(
 
                     Text(
                         text = fruit.nutrition[index],
-                        color = Color.Black,
                         style = TextStyle(
                             fontWeight = FontWeight.Bold,
                             fontSize = 16.sp,
@@ -116,7 +120,8 @@ fun FruitNutrientView(
     }
 }
 
-@Preview
+@Preview(name = "Light theme", uiMode = Configuration.UI_MODE_NIGHT_NO, showSystemUi = true)
+@Preview(name = "Dark theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showSystemUi = true)
 @Composable
 fun FruitNutrientViewPreview() {
     JetpackComposeAppFruitsTheme {

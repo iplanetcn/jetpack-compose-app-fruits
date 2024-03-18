@@ -1,4 +1,4 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.JetpackComposeAppFruits" parent="AppThemeLight" />
+    <style name="Theme.JetpackComposeAppFruits" parent="AppThemeDark" />
 </resources>

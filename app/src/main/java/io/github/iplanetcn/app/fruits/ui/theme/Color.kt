@@ -10,6 +10,9 @@ val Teal200 = Color(0xFF03DAC5)
 val LightAccentColor = Color(0xFF000000)
 val DarkAccentColor = Color(0xFFFEFFFE)
 
+val DarkCardColor = Color(0x30FFFFFF)
+val LightCardColor = Color(0x10000000)
+
 val ColorAppleDark = Color(0xFFFF0040)
 val ColorAppleLight = Color(0xFFFF8093)
 val ColorBlueberryDark = Color(0xFF247FFF)

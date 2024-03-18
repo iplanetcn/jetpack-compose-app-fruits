@@ -2,10 +2,12 @@ package io.github.iplanetcn.app.fruits
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -31,7 +33,9 @@ import androidx.core.view.WindowCompat
 import io.github.iplanetcn.app.fruits.ui.components.SettingsLabelView
 import io.github.iplanetcn.app.fruits.ui.components.SettingsRowView
 import io.github.iplanetcn.app.fruits.ui.theme.ColorLimeLight
+import io.github.iplanetcn.app.fruits.ui.theme.DarkCardColor
 import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
+import io.github.iplanetcn.app.fruits.ui.theme.LightCardColor
 import io.github.iplanetcn.app.fruits.ui.theme.Typography
 
 class SettingsActivity : BaseActivity() {
@@ -65,7 +69,6 @@ fun SettingsAppBar() {
 
     TopAppBar(
         modifier = Modifier.padding(top = 32.dp),
-        backgroundColor = Color.White,
         elevation = 0.dp,
     ) {
         Text(
@@ -84,7 +87,7 @@ fun SettingsAppBar() {
                 context.finish()
             }
         }) {
-            Icon(imageVector = Icons.Default.Close, contentDescription = "", tint = Color.Black)
+            Icon(imageVector = Icons.Default.Close, contentDescription = "")
         }
     }
 }
@@ -102,6 +105,7 @@ fun SettingsView() {
 @Composable
 fun SettingsContentView(modifier: Modifier) {
     val checkedState = remember { mutableStateOf(true) }
+    val cardColor: Color =  if (isSystemInDarkTheme()) DarkCardColor else LightCardColor
 
     Box(
         modifier
@@ -165,7 +169,7 @@ fun SettingsContentView(modifier: Modifier) {
                         modifier = Modifier
                             .padding(16.dp)
                             .height(60.dp)
-                            .background(Color.White, shape = RoundedCornerShape(16.dp))
+                            .background(color = cardColor, shape = RoundedCornerShape(16.dp))
                     ) {
                         Spacer(modifier = Modifier.padding(16.dp))
                         Text(
@@ -217,7 +221,8 @@ fun SettingsContentView(modifier: Modifier) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Light theme", uiMode = Configuration.UI_MODE_NIGHT_NO, showSystemUi = true)
+@Preview(name = "Dark theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showSystemUi = true)
 @Composable
 fun SettingsActivityPreview() {
     JetpackComposeAppFruitsTheme {

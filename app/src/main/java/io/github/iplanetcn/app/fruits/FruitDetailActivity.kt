@@ -2,6 +2,7 @@ package io.github.iplanetcn.app.fruits
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
@@ -52,7 +53,8 @@ fun ComponentActivity.setupStatusBarColor(color: Color) {
 }
 
 
-@Preview
+@Preview(name = "Light theme", uiMode = Configuration.UI_MODE_NIGHT_NO, showSystemUi = true)
+@Preview(name = "Dark theme", uiMode = Configuration.UI_MODE_NIGHT_YES, showSystemUi = true)
 @Composable
 fun Preview() {
     JetpackComposeAppFruitsTheme {
