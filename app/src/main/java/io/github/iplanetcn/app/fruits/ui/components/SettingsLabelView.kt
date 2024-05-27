@@ -1,5 +1,6 @@
 package io.github.iplanetcn.app.fruits.ui.components
 
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -41,7 +42,8 @@ fun SettingsLabelView(labelText: String, labelImage: ImageVector) {
 }
 
 @Composable
-@Preview
+@Preview(name = "Light Mode", uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview(name = "Dark Mode", uiMode = Configuration.UI_MODE_NIGHT_YES)
 fun SettingsLabelViewPreview() {
     SettingsLabelView(
         labelText = "Fructus",

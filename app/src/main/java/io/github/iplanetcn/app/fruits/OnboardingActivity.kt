@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalFoundationApi::class)
-
 package io.github.iplanetcn.app.fruits
 
 import android.content.res.Configuration
@@ -33,6 +31,7 @@ class OnboardingActivity : BaseActivity() {
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun OnboardingView() {
     val pagerState = rememberPagerState { 6 }

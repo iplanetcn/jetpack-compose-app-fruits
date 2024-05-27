@@ -35,7 +35,7 @@ import kotlin.math.sign
 
 
 @Composable
-public fun HorizontalPagerIndicator(
+fun HorizontalPagerIndicator(
     pagerState: PagerState,
     modifier: Modifier = Modifier,
     pageIndexMapping: (Int) -> Int = { it },

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
 }
 
 InputStream inputStream = rootProject.file('local.properties').newDataInputStream()
@@ -100,6 +101,8 @@ dependencies {
     implementation libs.androidx.core.splashscreen
     implementation libs.androidx.lifecycle.runtime.ktx
     implementation libs.appcompat
+    implementation libs.androidx.core.google.shortcuts
+    implementation libs.startup.runtime
     implementation libs.material
     implementation libs.kotlinx.coroutines.core
     implementation libs.kotlinx.coroutines.android
