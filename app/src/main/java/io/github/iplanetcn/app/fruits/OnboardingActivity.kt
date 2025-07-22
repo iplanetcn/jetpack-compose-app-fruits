@@ -3,7 +3,6 @@ package io.github.iplanetcn.app.fruits
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -31,7 +30,6 @@ class OnboardingActivity : BaseActivity() {
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun OnboardingView() {
     val pagerState = rememberPagerState { 6 }

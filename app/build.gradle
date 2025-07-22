@@ -9,16 +9,16 @@ Properties properties = new Properties()
 properties.load(inputStream)
 
 android {
-    compileSdk 34
+    compileSdk 36
     namespace 'io.github.iplanetcn.app.fruits'
     testNamespace 'io.github.iplanetcn.app.fruits.test'
 
     defaultConfig {
         applicationId "io.github.iplanetcn.app.fruits"
-        minSdk 21
-        targetSdk 34
-        versionCode 4
-        versionName "1.0.1"
+        minSdk 23
+        targetSdk 36
+        versionCode 10100
+        versionName "1.1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -72,8 +72,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = '17'
+    kotlin {
+        jvmToolchain(17)
     }
     buildFeatures {
         compose = true
