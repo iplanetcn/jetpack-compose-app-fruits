@@ -9,7 +9,7 @@ Properties properties = new Properties()
 properties.load(inputStream)
 
 android {
-    compileSdk 36
+    compileSdk = 36
     namespace 'io.github.iplanetcn.app.fruits'
     testNamespace 'io.github.iplanetcn.app.fruits.test'
 
@@ -40,17 +40,17 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file(properties.getProperty("DEBUG_KEY_STORE_FILE_PATH"))
+            storeFile file(properties.getProperty("DEBUG_STORE_FILE"))
+            storePassword properties.getProperty("DEBUG_STORE_PASSWORD")
             keyAlias properties.getProperty("DEBUG_KEY_ALIAS")
             keyPassword properties.getProperty("DEBUG_KEY_PASSWORD")
-            storePassword properties.getProperty("DEBUG_STORE_PASSWORD")
         }
 
         release {
             storeFile file(properties.getProperty("KEY_STORE_FILE_PATH"))
+            storePassword properties.getProperty("STORE_PASSWORD")
             keyAlias properties.getProperty("KEY_ALIAS")
             keyPassword properties.getProperty("KEY_PASSWORD")
-            storePassword properties.getProperty("STORE_PASSWORD")
         }
     }
 
