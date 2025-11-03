@@ -14,7 +14,6 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -27,9 +26,7 @@ import io.github.iplanetcn.app.fruits.data.fruitData
 import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 
 @Composable
-fun FruitCardView(fruit: Fruit) {
-    val context = LocalContext.current
-
+fun FruitCardView(fruit: Fruit, toMainScreen: () -> Unit = {}) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
@@ -89,10 +86,7 @@ fun FruitCardView(fruit: Fruit) {
             Spacer(modifier = Modifier.height(20.dp))
 
             StartButtonView {
-//                MainActivity.start(context)
-//                if(context is OnboardingActivity) {
-//                    context.finish()
-//                }
+                toMainScreen()
             }
 
             Spacer(modifier = Modifier.height(20.dp))

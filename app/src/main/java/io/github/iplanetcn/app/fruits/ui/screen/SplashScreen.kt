@@ -23,25 +23,6 @@ import androidx.compose.ui.unit.sp
 import io.github.iplanetcn.app.fruits.R
 import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 
-//@AndroidEntryPoint
-//class RoutingActivity : BaseActivity() {
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        val splashScreen = installSplashScreen()
-//        super.onCreate(savedInstanceState)
-//        // Keep the splash screen visible for this Activity
-//        splashScreen.setKeepOnScreenCondition { true }
-//        setupStatusBarColor(color = Color.Transparent)
-//        window?.run {
-//            WindowCompat.setDecorFitsSystemWindows(this, false)
-//        }
-//        lifecycleScope.launch(Dispatchers.Main) {
-//            delay(1000)
-//            startActivity(Intent(this@RoutingActivity, OnboardingActivity::class.java))
-//            this@RoutingActivity.finish()
-//        }
-//    }
-//}
-
 @Composable
 fun SplashScreenView() {
     Box(
@@ -83,7 +64,7 @@ fun SplashScreenView() {
     uiMode = Configuration.UI_MODE_NIGHT_YES
 )
 @Composable
-fun DefaultPreview() {
+fun SplashScreenViewPreview() {
     JetpackComposeAppFruitsTheme {
         SplashScreenView()
     }

@@ -31,7 +31,7 @@ fun FruitApp() {
         composable(Screen.Onboarding.route) {
             OnboardingView(onNavigateToMain = {
                 navController.navigate(Screen.Main.route)
-                navController.clearBackStack<Composable>()
+                navController.clearBackStack(Screen.Onboarding.route)
             })
         }
 

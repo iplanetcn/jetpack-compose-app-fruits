@@ -13,13 +13,13 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import io.github.iplanetcn.app.fruits.R
-import io.github.iplanetcn.app.fruits.data.Fruit
 import io.github.iplanetcn.app.fruits.data.fruitData
+import io.github.iplanetcn.app.fruits.ui.components.FruitCardView
 import io.github.iplanetcn.app.fruits.ui.components.HorizontalPagerIndicator
 import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 
 @Composable
-fun OnboardingView(onNavigateToMain: (Fruit) -> Unit) {
+fun OnboardingView(onNavigateToMain: () -> Unit) {
     val pagerState = rememberPagerState { 6 }
 
     Box(
@@ -29,7 +29,8 @@ fun OnboardingView(onNavigateToMain: (Fruit) -> Unit) {
             state = pagerState,
             modifier = Modifier.matchParentSize(),
         ) { page ->
-            onNavigateToMain(fruitData[page])
+            // 页面内容展示
+            FruitCardView(fruit = fruitData[page], onNavigateToMain)
         }
 
         HorizontalPagerIndicator(
