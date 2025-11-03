@@ -1,8 +1,10 @@
 package io.github.iplanetcn.app.fruits.data
 
 import androidx.compose.ui.graphics.Color
+import kotlinx.serialization.Serializable
 import java.util.*
 
+@Serializable
 data class Fruit(
     var id: UUID = UUID.randomUUID(),
     var title: String,

@@ -1,4 +1,4 @@
-package io.github.iplanetcn.app.fruits
+package io.github.iplanetcn.app.fruits.ui.activity
 
 import androidx.activity.ComponentActivity
 

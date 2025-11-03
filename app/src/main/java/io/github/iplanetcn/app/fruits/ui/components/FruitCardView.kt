@@ -22,8 +22,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import io.github.iplanetcn.app.fruits.MainActivity
-import io.github.iplanetcn.app.fruits.OnboardingActivity
 import io.github.iplanetcn.app.fruits.data.Fruit
 import io.github.iplanetcn.app.fruits.data.fruitData
 import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
@@ -91,10 +89,10 @@ fun FruitCardView(fruit: Fruit) {
             Spacer(modifier = Modifier.height(20.dp))
 
             StartButtonView {
-                MainActivity.start(context)
-                if(context is OnboardingActivity) {
-                    context.finish()
-                }
+//                MainActivity.start(context)
+//                if(context is OnboardingActivity) {
+//                    context.finish()
+//                }
             }
 
             Spacer(modifier = Modifier.height(20.dp))

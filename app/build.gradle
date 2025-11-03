@@ -1,7 +1,11 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 InputStream inputStream = rootProject.file('local.properties').newDataInputStream()
@@ -39,19 +43,19 @@ android {
     }
 
     signingConfigs {
-        debug {
-            storeFile file(properties.getProperty("DEBUG_STORE_FILE"))
-            storePassword properties.getProperty("DEBUG_STORE_PASSWORD")
-            keyAlias properties.getProperty("DEBUG_KEY_ALIAS")
-            keyPassword properties.getProperty("DEBUG_KEY_PASSWORD")
-        }
+//        debug {
+//            storeFile file(properties.getProperty("DEBUG_STORE_FILE"))
+//            storePassword properties.getProperty("DEBUG_STORE_PASSWORD")
+//            keyAlias properties.getProperty("DEBUG_KEY_ALIAS")
+//            keyPassword properties.getProperty("DEBUG_KEY_PASSWORD")
+//        }
 
-        release {
-            storeFile file(properties.getProperty("KEY_STORE_FILE_PATH"))
-            storePassword properties.getProperty("STORE_PASSWORD")
-            keyAlias properties.getProperty("KEY_ALIAS")
-            keyPassword properties.getProperty("KEY_PASSWORD")
-        }
+//        release {
+//            storeFile file(properties.getProperty("KEY_STORE_FILE_PATH"))
+//            storePassword properties.getProperty("STORE_PASSWORD")
+//            keyAlias properties.getProperty("KEY_ALIAS")
+//            keyPassword properties.getProperty("KEY_PASSWORD")
+//        }
     }
 
     buildTypes {
@@ -61,12 +65,12 @@ android {
             signingConfig signingConfigs.debug
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        release {
-            minifyEnabled true
-            shrinkResources true
-            signingConfig signingConfigs.release
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+//        release {
+//            minifyEnabled true
+//            shrinkResources true
+//            signingConfig signingConfigs.release
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -74,6 +78,9 @@ android {
     }
     kotlin {
         jvmToolchain(17)
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_17
+        }
     }
     buildFeatures {
         compose = true
@@ -100,6 +107,9 @@ dependencies {
     implementation libs.androidx.core.ktx
     implementation libs.androidx.core.splashscreen
     implementation libs.androidx.lifecycle.runtime.ktx
+    implementation libs.androidx.navigation.compose
+    implementation libs.hilt.android
+    ksp libs.hilt.android.compiler
     implementation libs.appcompat
     implementation libs.androidx.core.google.shortcuts
     implementation libs.startup.runtime
@@ -111,6 +121,7 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation platform(libs.androidx.compose.bom)
     androidTestImplementation libs.androidx.test.ext.junit
+    androidTestImplementation libs.androidx.navigation.testing
     androidTestImplementation libs.espresso.core
     androidTestImplementation libs.androidx.compose.ui.test.junit4
 }

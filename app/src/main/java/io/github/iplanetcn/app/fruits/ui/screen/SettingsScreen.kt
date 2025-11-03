@@ -1,10 +1,6 @@
-package io.github.iplanetcn.app.fruits
+package io.github.iplanetcn.app.fruits.ui.screen
 
-import android.content.Context
-import android.content.Intent
 import android.content.res.Configuration
-import android.os.Bundle
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -29,7 +25,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.view.WindowCompat
+import io.github.iplanetcn.app.fruits.BuildConfig
+import io.github.iplanetcn.app.fruits.R
 import io.github.iplanetcn.app.fruits.ui.components.SettingsLabelView
 import io.github.iplanetcn.app.fruits.ui.components.SettingsRowView
 import io.github.iplanetcn.app.fruits.ui.theme.ColorLimeLight
@@ -38,35 +35,8 @@ import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 import io.github.iplanetcn.app.fruits.ui.theme.LightCardColor
 import io.github.iplanetcn.app.fruits.ui.theme.Typography
 
-class SettingsActivity : BaseActivity() {
-    companion object {
-        @JvmStatic
-        fun start(context: Context) {
-            val starter = Intent(context, SettingsActivity::class.java)
-            context.startActivity(starter)
-        }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setupStatusBarColor(color = Color.Transparent)
-        window?.run {
-            WindowCompat.setDecorFitsSystemWindows(this, false)
-        }
-        setContent {
-            JetpackComposeAppFruitsTheme {
-                Surface(color = MaterialTheme.colors.background) {
-                    SettingsView()
-                }
-            }
-        }
-    }
-}
-
 @Composable
-fun SettingsAppBar() {
-    val context = LocalContext.current
-
+fun SettingsAppBar(onClose: (() -> Unit) = {}) {
     TopAppBar(
         modifier = Modifier.padding(top = 32.dp),
         elevation = 0.dp,
@@ -83,9 +53,7 @@ fun SettingsAppBar() {
         Spacer(modifier = Modifier.weight(1f))
 
         IconButton(onClick = {
-            if (context is SettingsActivity) {
-                context.finish()
-            }
+            onClose()
         }) {
             Icon(imageVector = Icons.Default.Close, contentDescription = "")
         }
@@ -94,9 +62,9 @@ fun SettingsAppBar() {
 
 
 @Composable
-fun SettingsView() {
+fun SettingsView(onClose: () -> Unit) {
     Scaffold(
-        topBar = { SettingsAppBar() },
+        topBar = { SettingsAppBar(onClose = onClose) },
     ) {
         SettingsContentView(Modifier.padding(it))
     }
@@ -226,6 +194,6 @@ fun SettingsContentView(modifier: Modifier) {
 @Composable
 fun SettingsActivityPreview() {
     JetpackComposeAppFruitsTheme {
-        SettingsView()
+        SettingsView(onClose = {})
     }
 }

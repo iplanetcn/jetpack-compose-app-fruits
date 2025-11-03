@@ -1,8 +1,6 @@
-package io.github.iplanetcn.app.fruits
+package io.github.iplanetcn.app.fruits.ui.screen
 
 import android.content.res.Configuration
-import android.os.Bundle
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -14,24 +12,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import io.github.iplanetcn.app.fruits.R
+import io.github.iplanetcn.app.fruits.data.Fruit
 import io.github.iplanetcn.app.fruits.data.fruitData
-import io.github.iplanetcn.app.fruits.ui.components.FruitCardView
 import io.github.iplanetcn.app.fruits.ui.components.HorizontalPagerIndicator
 import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 
-class OnboardingActivity : BaseActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            JetpackComposeAppFruitsTheme {
-                OnboardingView()
-            }
-        }
-    }
-}
-
 @Composable
-fun OnboardingView() {
+fun OnboardingView(onNavigateToMain: (Fruit) -> Unit) {
     val pagerState = rememberPagerState { 6 }
 
     Box(
@@ -41,7 +29,7 @@ fun OnboardingView() {
             state = pagerState,
             modifier = Modifier.matchParentSize(),
         ) { page ->
-            FruitCardView(fruit = fruitData[page])
+            onNavigateToMain(fruitData[page])
         }
 
         HorizontalPagerIndicator(
@@ -65,6 +53,6 @@ fun OnboardingView() {
 @Composable
 fun OnboardingViewPreview() {
     JetpackComposeAppFruitsTheme {
-        OnboardingView()
+        OnboardingView {}
     }
 }

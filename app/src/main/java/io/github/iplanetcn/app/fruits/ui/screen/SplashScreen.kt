@@ -1,8 +1,6 @@
-package io.github.iplanetcn.app.fruits
+package io.github.iplanetcn.app.fruits.ui.screen
 
-import android.content.Intent
 import android.content.res.Configuration
-import android.os.Bundle
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -22,31 +20,27 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.core.view.WindowCompat
-import androidx.lifecycle.lifecycleScope
+import io.github.iplanetcn.app.fruits.R
 import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
-class RoutingActivity : BaseActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        val splashScreen = installSplashScreen()
-        super.onCreate(savedInstanceState)
-        // Keep the splash screen visible for this Activity
-        splashScreen.setKeepOnScreenCondition { true }
-        setupStatusBarColor(color = Color.Transparent)
-        window?.run {
-            WindowCompat.setDecorFitsSystemWindows(this, false)
-        }
-        lifecycleScope.launch(Dispatchers.Main) {
-            delay(1000)
-            startActivity(Intent(this@RoutingActivity, OnboardingActivity::class.java))
-            this@RoutingActivity.finish()
-        }
-    }
-}
+//@AndroidEntryPoint
+//class RoutingActivity : BaseActivity() {
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        val splashScreen = installSplashScreen()
+//        super.onCreate(savedInstanceState)
+//        // Keep the splash screen visible for this Activity
+//        splashScreen.setKeepOnScreenCondition { true }
+//        setupStatusBarColor(color = Color.Transparent)
+//        window?.run {
+//            WindowCompat.setDecorFitsSystemWindows(this, false)
+//        }
+//        lifecycleScope.launch(Dispatchers.Main) {
+//            delay(1000)
+//            startActivity(Intent(this@RoutingActivity, OnboardingActivity::class.java))
+//            this@RoutingActivity.finish()
+//        }
+//    }
+//}
 
 @Composable
 fun SplashScreenView() {

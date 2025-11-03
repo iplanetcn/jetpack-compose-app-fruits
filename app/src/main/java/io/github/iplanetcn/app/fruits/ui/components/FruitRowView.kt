@@ -12,7 +12,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
@@ -20,21 +19,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import io.github.iplanetcn.app.fruits.FruitDetailActivity
 import io.github.iplanetcn.app.fruits.data.Fruit
 import io.github.iplanetcn.app.fruits.data.fruitData
 import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 
 @Composable
-fun FruitRowView(fruit: Fruit) {
-    val context = LocalContext.current
-
+fun FruitRowView(fruit: Fruit, onItemClick: (Fruit) -> Unit) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .padding(8.dp)
             .clickable(role = Role.Button) {
-                FruitDetailActivity.start(context, fruit.id)
+                onItemClick(fruit)
             }
     ) {
         // icon
@@ -90,6 +86,6 @@ fun FruitRowView(fruit: Fruit) {
 @Composable
 fun FruitRowViewPreview() {
     JetpackComposeAppFruitsTheme {
-        FruitRowView(fruitData[0])
+        FruitRowView(fruitData[0], onItemClick = {})
     }
 }
