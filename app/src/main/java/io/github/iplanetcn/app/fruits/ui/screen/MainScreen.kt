@@ -13,7 +13,6 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -22,35 +21,6 @@ import io.github.iplanetcn.app.fruits.data.fruitData
 import io.github.iplanetcn.app.fruits.ui.components.FruitRowView
 import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 import io.github.iplanetcn.app.fruits.ui.theme.Typography
-
-//@AndroidEntryPoint
-//class MainActivity : BaseActivity() {
-//
-//
-//    companion object {
-//        @JvmStatic
-//        fun start(context: Context) {
-//            val starter = Intent(context, MainActivity::class.java)
-//            context.startActivity(starter)
-//        }
-//    }
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setupStatusBarColor(color = Color.Transparent)
-//        window?.run {
-//            WindowCompat.setDecorFitsSystemWindows(this, false)
-//        }
-//        setContent {
-//            JetpackComposeAppFruitsTheme {
-//                // A surface container using the 'background' color from the theme
-//                Surface(color = MaterialTheme.colors.background) {
-//                    MainView()
-//                }
-//            }
-//        }
-//    }
-//}
 
 @Composable
 fun MainAppBar(toSettings: () -> Unit) {

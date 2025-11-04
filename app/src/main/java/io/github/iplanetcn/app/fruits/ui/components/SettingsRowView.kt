@@ -3,23 +3,21 @@ package io.github.iplanetcn.app.fruits.ui.components
 import android.content.Intent
 import android.net.Uri
 import android.util.Log
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Link
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -60,41 +58,24 @@ fun SettingsRowView(
                     text = content
                 )
             } else if (linkLabel != null && linkDestination != null) {
-                val text = with(AnnotatedString.Builder()) {
-                    pushStyle(
-                        style = SpanStyle(
-                            color = Color.Blue,
-                            textDecoration = TextDecoration.Underline
+                Text(
+                    text = linkLabel,
+                    color = MaterialTheme.colors.secondaryVariant,
+                    textDecoration = TextDecoration.Underline,
+                    modifier = Modifier.clickable {
+                        Log.d("SettingsRowView", "Link clicked: $linkDestination")
+                        // open link
+                        context.startActivity(
+                            Intent(Intent.ACTION_VIEW).setData(
+                                Uri.parse(linkDestination)
+                            )
                         )
-                    )
-                    append(linkLabel)
-                    addStringAnnotation(
-                        tag = "URL",
-                        annotation = linkDestination,
-                        start = 0, end = length
-                    )
-                    toAnnotatedString()
-                }
-
-                ClickableText(
-                    text = text, onClick = { offset ->
-                        text.getStringAnnotations(tag = "URL", start = offset, end = offset)
-                            .firstOrNull()?.let { annotation ->
-                                Log.d("ClickableText", "$annotation is clicked.")
-                                // open link
-                                context.startActivity(
-                                    Intent(Intent.ACTION_VIEW).setData(
-                                        Uri.parse(
-                                            annotation.item
-                                        )
-                                    )
-                                )
-                            }
-                    })
+                    }
+                )
                 Icon(
                     imageVector = Icons.Filled.Link,
                     contentDescription = "",
-                    tint = Color.Blue
+                    tint = MaterialTheme.colors.secondaryVariant
                 )
             }
         }
@@ -115,5 +96,9 @@ fun SettingsRowViewPreviewFirst() {
 @Preview
 @Composable
 fun SettingsRowViewPreviewSecond() {
-    SettingsRowView(name = "Source Code", linkLabel = "github", linkDestination = "https://github.com")
+    SettingsRowView(
+        name = "Source Code",
+        linkLabel = "github",
+        linkDestination = "https://github.com"
+    )
 }

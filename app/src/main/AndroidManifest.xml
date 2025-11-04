@@ -11,38 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JetpackComposeAppFruits.Starting"
         tools:ignore="AllowBackup">
-        <!--        <activity-->
-        <!--            android:name=".ui.screen.SettingsActivity"-->
-        <!--            android:exported="true"-->
-        <!--            android:label="@string/title_activity_settings"-->
-        <!--            android:theme="@style/Theme.JetpackComposeAppFruits.NoActionBar" />-->
-        <!--        <activity-->
-        <!--            android:name=".ui.screen.FruitDetailActivity"-->
-        <!--            android:exported="true"-->
-        <!--            android:label="@string/title_activity_fruit_detail"-->
-        <!--            android:theme="@style/Theme.JetpackComposeAppFruits.NoActionBar"/>-->
-        <!--        <activity-->
-        <!--            android:name=".ui.screen.OnboardingActivity"-->
-        <!--            android:exported="true"-->
-        <!--            android:label="@string/title_activity_onboarding"-->
-        <!--            android:theme="@style/Theme.JetpackComposeAppFruits.NoActionBar"/>-->
-        <!--        <activity-->
-        <!--            android:name=".ui.screen.MainActivity"-->
-        <!--            android:exported="true"-->
-        <!--            android:label="@string/title_activity_main"-->
-        <!--            android:theme="@style/Theme.JetpackComposeAppFruits.NoActionBar"/>-->
-        <!--        <activity-->
-        <!--            android:name=".ui.screen.RoutingActivity"-->
-        <!--            android:exported="true"-->
-        <!--            android:theme="@style/Theme.JetpackComposeAppFruits.Starting">-->
-        <!--            <intent-filter>-->
-        <!--                <action android:name="android.intent.action.MAIN" />-->
-        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-        <!--            </intent-filter>-->
-        <!--        </activity>-->
-
         <activity
-            android:name=".ui.activity.SplashActivity"
+            android:name=".ui.activity.AppActivity"
+            android:label="@string/title_activity_main"
             android:exported="true"
             android:theme="@style/Theme.JetpackComposeAppFruits.Starting">
             <intent-filter>
@@ -50,12 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".ui.activity.AppActivity"
-            android:exported="false"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.JetpackComposeAppFruits.NoActionBar" />
     </application>
 
 </manifest>

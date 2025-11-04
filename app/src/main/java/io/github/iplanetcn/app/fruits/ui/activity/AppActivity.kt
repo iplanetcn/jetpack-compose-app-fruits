@@ -3,13 +3,10 @@ package io.github.iplanetcn.app.fruits.ui.activity
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.ui.graphics.Color
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import dagger.hilt.android.AndroidEntryPoint
-import io.github.iplanetcn.app.fruits.navigation.FruitApp
-import io.github.iplanetcn.app.fruits.ui.screen.setupStatusBarColor
-import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
+import io.github.iplanetcn.app.fruits.navigation.ComposeApp
 import io.github.iplanetcn.app.fruits.viewmodel.AppViewModel
 
 /**
@@ -20,19 +17,15 @@ import io.github.iplanetcn.app.fruits.viewmodel.AppViewModel
  */
 @AndroidEntryPoint
 class AppActivity: BaseActivity() {
-    private val appViewModel: AppViewModel by viewModels()
+    private val viewModel: AppViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
-        // Keep the splash screen visible for this Activity
-        setupStatusBarColor(color = Color.Transparent)
         window?.run {
             WindowCompat.setDecorFitsSystemWindows(this, false)
         }
-        setContent {
-            JetpackComposeAppFruitsTheme {
-                FruitApp()
-            }
-        }
+        splashScreen.setKeepOnScreenCondition { viewModel.isLoading.value }
+        setContent { ComposeApp() }
     }
 }

@@ -1,6 +1,5 @@
 package io.github.iplanetcn.app.fruits.ui.components
 
-import android.app.Activity
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.core.FastOutLinearInEasing
@@ -25,7 +24,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -40,9 +38,8 @@ import io.github.iplanetcn.app.fruits.ui.theme.LightCardColor
 import java.util.*
 
 @Composable
-fun FruitDetailView(fruit: Fruit) {
+fun FruitDetailView(fruit: Fruit, onBack: () -> Unit = {}) {
     val statusBarTop = WindowInsets.systemBars.asPaddingValues().calculateTopPadding()
-    val activity = LocalContext.current as? Activity
     val isDefault = remember { mutableStateOf(true) }
     val imageScale: Float by animateFloatAsState(
         if (isDefault.value) 0.5f else 1f, animationSpec = tween(
@@ -141,9 +138,7 @@ fun FruitDetailView(fruit: Fruit) {
                 .padding(horizontal = 16.dp, vertical = statusBarTop)
                 .background(
                     color = cardColor, shape = RoundedCornerShape(48.dp)
-                ), onClick = {
-                activity?.finish()
-            }) {
+                ), onClick = onBack) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Default.ArrowBack,
                     contentDescription = "Back Icon",
