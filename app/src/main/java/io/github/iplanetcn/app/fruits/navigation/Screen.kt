@@ -1,6 +1,5 @@
 package io.github.iplanetcn.app.fruits.navigation
 
-import android.R
 import android.net.Uri
 import com.google.gson.Gson
 import io.github.iplanetcn.app.fruits.data.Fruit

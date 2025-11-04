@@ -1,10 +1,5 @@
 <resources>
     <string name="app_name">Fruits APP</string>
     <string name="button_text_start">Start</string>
-    <string name="title_activity_onboarding">OnboardingActivity</string>
-    <string name="title_activity_splash_screen">SplashScreenActivity</string>
-    <string name="title_activity_fruit_detail">FruitDetailActivity</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="get_started">Get Started</string>
-    <string name="title_activity_settings">SettingsActivity</string>
 </resources>

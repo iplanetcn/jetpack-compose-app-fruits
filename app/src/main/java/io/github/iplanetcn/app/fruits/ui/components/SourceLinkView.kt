@@ -2,7 +2,6 @@ package io.github.iplanetcn.app.fruits.ui.components
 
 import android.content.Intent
 import android.content.res.Configuration
-import android.net.Uri
 import android.util.Log
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
@@ -28,6 +27,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import io.github.iplanetcn.app.fruits.ui.theme.DarkCardColor
 import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
 import io.github.iplanetcn.app.fruits.ui.theme.LightCardColor
@@ -63,7 +63,7 @@ fun SourceLinkView(modifier: Modifier = Modifier, keyword: String = String()) {
                 // open link
                 context.startActivity(
                     Intent(Intent.ACTION_VIEW).setData(
-                        Uri.parse(linkDestination)
+                        linkDestination.toUri()
                     )
                 )
             }

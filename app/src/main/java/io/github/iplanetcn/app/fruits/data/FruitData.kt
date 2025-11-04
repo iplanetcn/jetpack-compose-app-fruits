@@ -1,9 +1,35 @@
 package io.github.iplanetcn.app.fruits.data
 
 import io.github.iplanetcn.app.fruits.R
-import io.github.iplanetcn.app.fruits.ui.theme.*
+import io.github.iplanetcn.app.fruits.ui.theme.ColorAppleDark
+import io.github.iplanetcn.app.fruits.ui.theme.ColorAppleLight
+import io.github.iplanetcn.app.fruits.ui.theme.ColorBlueberryDark
+import io.github.iplanetcn.app.fruits.ui.theme.ColorBlueberryLight
+import io.github.iplanetcn.app.fruits.ui.theme.ColorCherryDark
+import io.github.iplanetcn.app.fruits.ui.theme.ColorCherryLight
+import io.github.iplanetcn.app.fruits.ui.theme.ColorGooseberryDark
+import io.github.iplanetcn.app.fruits.ui.theme.ColorGooseberryLight
+import io.github.iplanetcn.app.fruits.ui.theme.ColorGrapefruitDark
+import io.github.iplanetcn.app.fruits.ui.theme.ColorGrapefruitLight
+import io.github.iplanetcn.app.fruits.ui.theme.ColorLemonDark
+import io.github.iplanetcn.app.fruits.ui.theme.ColorLemonLight
+import io.github.iplanetcn.app.fruits.ui.theme.ColorLimeDark
+import io.github.iplanetcn.app.fruits.ui.theme.ColorLimeLight
+import io.github.iplanetcn.app.fruits.ui.theme.ColorMangoDark
+import io.github.iplanetcn.app.fruits.ui.theme.ColorMangoLight
+import io.github.iplanetcn.app.fruits.ui.theme.ColorPearDark
+import io.github.iplanetcn.app.fruits.ui.theme.ColorPearLight
+import io.github.iplanetcn.app.fruits.ui.theme.ColorPlumDark
+import io.github.iplanetcn.app.fruits.ui.theme.ColorPlumLight
+import io.github.iplanetcn.app.fruits.ui.theme.ColorPomegranateDark
+import io.github.iplanetcn.app.fruits.ui.theme.ColorPomegranateLight
+import io.github.iplanetcn.app.fruits.ui.theme.ColorStrawberryDark
+import io.github.iplanetcn.app.fruits.ui.theme.ColorStrawberryLight
+import io.github.iplanetcn.app.fruits.ui.theme.ColorWatermelonDark
+import io.github.iplanetcn.app.fruits.ui.theme.ColorWatermelonLight
 
 
+@Suppress("SpellCheckingInspection")
 val fruitData: Array<Fruit> = arrayOf(
     Fruit(
         title = "Blueberry",

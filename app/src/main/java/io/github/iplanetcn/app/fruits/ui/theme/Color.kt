@@ -2,17 +2,9 @@ package io.github.iplanetcn.app.fruits.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
 val Teal200 = Color(0xFF03DAC5)
-
-val LightAccentColor = Color(0xFF000000)
-val DarkAccentColor = Color(0xFFFEFFFE)
-
 val DarkCardColor = Color(0x30FFFFFF)
 val LightCardColor = Color(0x10000000)
-
 val ColorAppleDark = Color(0xFFFF0040)
 val ColorAppleLight = Color(0xFFFF8093)
 val ColorBlueberryDark = Color(0xFF247FFF)

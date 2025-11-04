@@ -1,6 +1,5 @@
 package io.github.iplanetcn.app.fruits.viewmodel
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,9 +16,7 @@ import kotlinx.coroutines.launch
  * @since 2025-11-03
  */
 @HiltViewModel
-class AppViewModel @Inject constructor(
-    private val savedStateHandle: SavedStateHandle
-) : ViewModel() {
+class AppViewModel @Inject constructor(): ViewModel() {
     private val mutableStateFlow = MutableStateFlow(true)
     val isLoading = mutableStateFlow.asStateFlow()
 

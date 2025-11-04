@@ -50,15 +50,9 @@
         <item name="android:textColor">?attr/colorControlNormal</item>
     </style>
 
-    <style name="AppFullScreenDialogLight" parent="AppFullScreenDialogLightBase">
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@color/color_system_ui_overlay</item>
-    </style>
+    <style name="AppFullScreenDialogLight" parent="AppFullScreenDialogLightBase"/>
 
-    <style name="AppFullScreenDialogDark" parent="AppFullScreenDialogDarkBase">
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-    </style>
+    <style name="AppFullScreenDialogDark" parent="AppFullScreenDialogDarkBase"/>
 
     <style name="AppBottomSheetDialogLightBase" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
         <item name="android:windowIsFloating">false</item>
@@ -102,15 +96,9 @@
         <item name="bottomSheetStyle">@style/AppBottomSheetStyle</item>
     </style>
 
-    <style name="AppBottomSheetDialogLight" parent="AppBottomSheetDialogLightBase">
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@color/color_system_ui_overlay</item>
-    </style>
+    <style name="AppBottomSheetDialogLight" parent="AppBottomSheetDialogLightBase" />
 
-    <style name="AppBottomSheetDialogDark" parent="AppBottomSheetDialogDarkBase">
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-    </style>
+    <style name="AppBottomSheetDialogDark" parent="AppBottomSheetDialogDarkBase" />
 
     <style name="AppThemeLightBase" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@color/color_light_background</item>
@@ -159,32 +147,11 @@
         <item name="fullScreenDialogTheme">@style/AppFullScreenDialogDark</item>
     </style>
 
-    <style name="AppThemeLight" parent="AppThemeLightBase">
-        <item name="android:statusBarColor">@color/color_system_ui_overlay</item>
-        <item name="android:navigationBarColor">@color/color_system_ui_overlay</item>
-    </style>
+    <style name="AppThemeLight" parent="AppThemeLightBase" />
 
-    <style name="AppThemeDark" parent="AppThemeDarkBase">
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-    </style>
+    <style name="AppThemeDark" parent="AppThemeDarkBase" />
 
     <style name="Theme.JetpackComposeAppFruits" parent="AppThemeLight" />
-
-    <style name="Theme.JetpackComposeAppFruits.Fullscreen">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowFullscreen">true</item>
-    </style>
-
-    <style name="Theme.JetpackComposeAppFruits.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="Theme.JetpackComposeAppFruits.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.JetpackComposeAppFruits.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="Theme.JetpackComposeAppFruits.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/color_lime_dark</item>

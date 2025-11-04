@@ -3,46 +3,17 @@
     <!-- theme colors -->
     <color name="color_clash_light">#1e4376</color>
     <color name="color_clash_dark">#1976d2</color>
-    <color name="color_system_ui_overlay">#50000000</color>
     <color name="color_light_background">#FFFAFAFA</color>
     <color name="color_dark_background">#FF121212</color>
     <color name="color_dark_surface">#FF202020</color>
     <color name="color_light_clash_stopped">#FF808080</color>
     <color name="color_light_control_disabled">#FFD3D3D3</color>
     <color name="color_dark_control_disabled">#FF808080</color>
-    <color name="color_error">#FFB00020</color>
     <color name="color_half_white">#80FFFFFF</color>
     <color name="color_half_black">#80000000</color>
-    <color name="color_red">#FFFF0000</color>
     <!-- black and white-->
-    <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="transparent">#00000000</color>
     <!-- fruit colors -->
-    <color name="color_apple_dark">#FFFF0040</color>
-    <color name="color_apple_light">#FFFF8093</color>
-    <color name="color_blueberry_dark">#FF247FFF</color>
-    <color name="color_blueberry_light">#FF66D6FF</color>
-    <color name="color_cherry_dark">#FF7CBB00</color>
-    <color name="color_cherry_light">#FFD5FF4C</color>
-    <color name="color_gooseberry_dark">#FF678A00</color>
-    <color name="color_gooseberry_light">#FFDDE366</color>
-    <color name="color_grapefruit_dark">#FFFF8229</color>
-    <color name="color_grapefruit_light">#FFFFBD80</color>
-    <color name="color_lemon_dark">#FFFFA800</color>
-    <color name="color_lemon_light">#FFFFF242</color>
     <color name="color_lime_dark">#FF009443</color>
     <color name="color_lime_light">#FF6BEF67</color>
-    <color name="color_mango_dark">#FF7CBB00</color>
-    <color name="color_mango_light">#FFFFE95C</color>
-    <color name="color_pear_dark">#FFDA7720</color>
-    <color name="color_pear_light">#FFFFC15D</color>
-    <color name="color_plum_dark">#FFFF183F</color>
-    <color name="color_plum_light">#FFFF7A93</color>
-    <color name="color_pomegranate_dark">#FFD600A8</color>
-    <color name="color_pomegranate_light">#FFFD869A</color>
-    <color name="color_strawberry_dark">#FFFF0059</color>
-    <color name="color_strawberry_light">#FFFF809B</color>
-    <color name="color_watermelon_dark">#FF3B9834</color>
-    <color name="color_watermelon_light">#FF84F476</color>
 </resources>

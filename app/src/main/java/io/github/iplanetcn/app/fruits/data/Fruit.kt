@@ -2,7 +2,7 @@ package io.github.iplanetcn.app.fruits.data
 
 import androidx.compose.ui.graphics.Color
 import kotlinx.serialization.Serializable
-import java.util.*
+import java.util.UUID
 
 @Serializable
 data class Fruit(
