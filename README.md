@@ -12,7 +12,7 @@ Compose Fruits APP by Jetpack Compose
 
 ## Todo List
 - Theme
-    - [ ] Support Dark Mode
+    - [x] Support Dark Mode
     - [ ] Follow System
 - Multiple Language Support
     - [x] English
@@ -24,4 +24,5 @@ Compose Fruits APP by Jetpack Compose
     - [ ] Korea
     - [ ] Russia
 - Architecture
+    - [x] Single Activity
     - [ ] MVVM Refactor
