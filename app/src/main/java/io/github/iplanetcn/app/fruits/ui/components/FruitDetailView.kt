@@ -7,7 +7,6 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,14 +21,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -39,7 +33,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -48,9 +41,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import io.github.iplanetcn.app.fruits.data.Fruit
 import io.github.iplanetcn.app.fruits.data.fruitData
-import io.github.iplanetcn.app.fruits.ui.theme.DarkCardColor
 import io.github.iplanetcn.app.fruits.ui.theme.JetpackComposeAppFruitsTheme
-import io.github.iplanetcn.app.fruits.ui.theme.LightCardColor
 import java.util.Locale
 
 @Composable
@@ -62,9 +53,6 @@ fun FruitDetailView(fruit: Fruit, onBack: () -> Unit = {}) {
             durationMillis = 300, delayMillis = 50, easing = FastOutLinearInEasing
         ), label = "ImageScale"
     )
-
-    val cardColor: Color =  if (isSystemInDarkTheme()) DarkCardColor else LightCardColor
-
 
     LaunchedEffect(true) {
         isDefault.value = false
@@ -150,17 +138,7 @@ fun FruitDetailView(fruit: Fruit, onBack: () -> Unit = {}) {
 
             }
 
-            IconButton(modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = statusBarTop)
-                .background(
-                    color = cardColor, shape = RoundedCornerShape(48.dp)
-                ), onClick = onBack) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Default.ArrowBack,
-                    contentDescription = "Back Icon",
-                    tint = Color.White
-                )
-            }
+            BackButtonView(modifier = Modifier.padding(horizontal = 16.dp, vertical = statusBarTop), onClick = onBack)
         }
     }
 }
